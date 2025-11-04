@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+    <title>Method SaveSelectedImagesToBase64Binary - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SaveSelectedImagesToBase64Binary.htm'>SaveSelectedImagesToBase64Binary</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SaveSelectedImagesToBase64Binary()</h1>
+        <h3>Description</h3>
+        <p>Saves the selected images in buffer to a base64 string.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .SaveSelectedImagesToBase64Binary();
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code>None</code>
+        <h3>Return value</h3>
+        <p><code class="type">&lt;string&gt;</code></p>
+        <p>
+            The result string is the pure base64 string with no extra info. For example, <br />
+            <code>"/9j/4AAQSkZJRgABA..."</code>.<br />
+            To use the string in most circumstances, you need to add extra info like<br />
+            <code><span class="red">data:image/png;base64,</span>"/9j/4AAQSkZJRgABA..."</code>.<br />
+        </p>
+        <h3>Remarks</h3>
+        Please invoke <code><a href="../Methods/method%20GetSelectedImagesSize.htm">GetSelectedImagesSize</a></code> before invoking this method to specify the target format. The default value is <code class="type">IT_JPG</code> and it doesn't support B/W images.
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Methods/method%20GetSelectedImagesSize.htm">GetSelectedImagesSize</a></code><br />
+            <code><a href="../Methods/method%20SetSelectedImageIndex.htm">SetSelectedImageIndex</a></code><br />
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>var imagedata;
+DWObject.SelectedImagesCount = 1;
+DWObject.SetSelectedImageIndex(0, 0);
+DWObject.GetSelectedImagesSize(EnumDWT_ImageType.IT_JPG);
+imagedata = DWObject.SaveSelectedImagesToBase64Binary();
+newImage.src = "data:image/png;base64," + imagedata;</pre>
+        </code>
+    </div>
+</body>
+</html>

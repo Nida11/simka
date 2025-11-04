@@ -1,0 +1,56 @@
+﻿<html>
+<head>
+    <title>Property ProductName - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20ProductName.htm'>ProductName</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>ProductName</h1>
+        <h3>Description</h3>
+        <p>Returns or sets the ProductName string for the application identity.</p>
+        <h3>Data type</h3>
+        <code class="type">&lt;string&gt;</code>
+        <p>The max length is 32.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.ProductName;</p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            The ProductName property is a part of the application identity. The application identity consists of the
+            <code><a href="prop%20manufacturer.htm">Manufacturer</a></code>,
+            <code><a href="prop%20ProductFamily.htm">ProductFamily</a></code>,
+            <code><a href="prop%20ProductName.htm">ProductName</a></code> and
+            <code><a href="prop%20VersionInfo.htm">VersionInfo</a></code>.
+        </p>
+        <p>
+            All the application identity information should be set prior to invoking
+            <code><a href="../Methods/method%20OpenSourceManager.htm">OpenSourceManager()</a></code>. Since with
+            built-in Wizard Mode, Dynamic TWAIN manages the transition of TWAIN state intelligently,
+            <code><a href="../Methods/method%20OpenSourceManager.htm">OpensourceManager()</a></code> may be called
+            automatically by other TWAIN related functions, such as
+            <code><a href="../Methods/method%20OpenSource.htm">OpenSource()</a></code> or
+            <code><a href="../Methods/method%20AcquireImage.htm">AcquireImage()</a></code>. It is recommended that application identity information
+            be set prior to any other TWAIN functions.
+        </p>
+        <p>
+            When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Methods/method%20OpenSourceManager.htm">OpenSourceManager()</a></code><br />
+            <code><a href="prop%20ProductFamily.htm">ProductFamily</a></code><br />
+            <code><a href="prop%20Manufacturer.htm">Manufacturer</a></code><br />
+            <code><a href="prop%20VersionInfo.htm">VersionInfo</a></code>
+        </p>
+    </div>
+</body>
+</html>

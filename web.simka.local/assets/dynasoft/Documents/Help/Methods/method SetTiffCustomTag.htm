@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+    <title>Method SetTiffCustomTag - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SetTiffCustomTag.htm'>SetTiffCustomTag</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SetTiffCustomTag()</h1>
+
+        <h3>Description</h3>
+        <p>Sets a custom tiff tag (up to 32 tags). The string to be set in a tag can be base64 encoded.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .SetTiffCustomTag(tagIdentifier, content, UseBase64Encoding);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;Number&gt;</code> <code>tagIdentifier</code>: specifies the identify number of custom tag in the tiff image. The number can range from 1 to 65535.<br />
+        <code class="type">&lt;String&gt;</code> <code>content</code>: the string to be set for this tag. The string will be written to the .tiff file when you save/upload it. If the string is base64 encoded, it'll be decoded when creating the TIFF file.<br />
+        <code class="type">bool</code> <code>UseBase64Encoding</code>: specifies whether the content is base64 encoded.
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+		
+		<h3>Example</h3>
+        <code style="padding:0">
+			<pre>
+DWObject.ClearTiffCustomTag();
+DWObject.SetTiffCustomTag(700, "Custom Tiff Tag Value", true); 
+DWObject.SaveAsTIFF("C:\\DWT.tiff", 0);</pre>
+        </code>
+		
+		<h3>See also</h3>
+        <p>
+            <code><a href="../Methods/method%20ClearTIFFCustomTag.htm">ClearTIFFCustomTag</a></code>
+        </p>
+
+    </div>
+</body>
+
+</html>

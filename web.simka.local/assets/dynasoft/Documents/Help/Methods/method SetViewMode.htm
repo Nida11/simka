@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+    <title>Method SetViewMode - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SetViewMode.htm'>SetViewMode</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SetViewMode()</h1>
+
+        <h3>Description</h3>
+        <p>
+            Sets how the images are displayed in Dynamic Web TWAIN viewer.
+        </p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .SetViewMode(sHorizontalImageCount,  sVerticalImageCount);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;short&gt;</code> <code>sHorizontalImageCount</code>: specifies the number of columns.<br />
+        <code class="type">&lt;short&gt;</code> <code>sVerticalImageCount</code>: specifies the number of rows.
+        <h3>Return value</h3>
+        <p><code class="type">void</code></p>
+        <h3>Remarks</h3>
+        <p>
+            The default view mode is 1 by 1.<br />
+            <br />
+            When the view mode is set to -1 by -1, Dynamic Web TWAIN only shows the
+            current image. No scroll bar is provided to navigate to other images.<br />
+			<br />
+            When the view mode is set to m (m>0) by n (n>0), a <i><b>vertical scroll bar</b></i> will be provided to navigate to other images.<br />
+			<br />
+            When the view mode is set to n (n>=1) by -1, a <i><b>horizontal scroll bar</b></i> will be provided to navigate to other images.
+        </p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Properties/prop%20ImageMargin.htm">ImageMargin</a></code><br />
+            <code><a href="../Properties/prop%20MouseShape.htm">MouseShape</a></code>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+    <title>Method Addon.PDF.IsTextBasedPDF - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href='method%20Addon.PDF.IsTextBasedPDF.htm'>Addon.PDF.IsTextBasedPDF</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.PDF.IsTextBasedPDF()</h1>
+        <h3>Description</h3>
+        <p>Judges whether the local PDF is text-based or not.</p>
+        
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.Addon.PDF.IsTextBasedPDF(localFile)</p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;string&gt;</code> <code>localFile</code>: specifies the local path of the target PDF.<br />
+
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates the PDF is text-based. <code>false</code> indicates the PDF is not text-based.
+        </p>
+        <h3>Remarks</h3>
+        <p>
+            This API is only available in the HTML5 edition for Windows. <br />When an error occurs, check <code><a href="..\Properties\prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="..\Properties\prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+		
+        <h3 id="skip">Example</h3>
+<code class="language-javascript"><pre>function LoadImage() {
+    if (DWObject) {
+        DWObject.IfShowFileDialog = false;
+        DWObject.ShowFileDialog(false, "PDF| *.pdf", 0, "", "", false, true, 0);
+    }
+}
+
+function OnGetFilePath(bSave, filesCount, index, path, name) {
+    fileName = path + "\\" + name;
+    if (DWObject.Addon.PDF.IsTextBasedPDF(fileName)) {
+        //Turn on PDF Rasterizer to Load text-based PDF files.    				
+        DWObject.Addon.PDF.SetResolution(200);
+        DWObject.Addon.PDF.SetConvertMode(EnumDWT_ConverMode.CM_RENDERALL);
+
+        DWObject.LoadImage(fileName);
+    }
+    else {
+        //Use Normal way instead of PDF Raterizer to load image-based PDF files.
+        DWObject.Addon.PDF.SetConvertMode(EnumDWT_ConverMode.CM_DEFAULT);
+
+        DWObject.LoadImage(fileName);
+    }
+}</pre></code>
+
+        <h3>See also</h3>
+        <p>
+          <code><a href="method%20Addon.PDF.SetConvertMode.htm">Addon.PDF.SetConvertMode()</a></code></br>
+          <code><a href="method%20ShowFileDialog.htm">ShowFileDialog()</a></code></br>
+        	<code><a href="../Events/Event%20OnGetFilePath.htm">OnGetFilePath</a></code>           
+        </p>
+    </div>
+</body>
+</html>

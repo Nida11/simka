@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+    <title>Property HTTPPostResponseString - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20HTTPPostResponseString.htm'>HTTPPostResponseString</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>HTTPPostResponseString</h1>
+        <h3>Description</h3>
+        <p>
+            Returns the response string from the HTTP server if an error occurred after calling one of the HTTPUploadThroughPost*** methods.<br />
+            This is a read-only property.
+        </p>
+        <h3>Data type</h3>
+        <code class="type">&lt;string&gt;</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.HTTPPostResponseString;</p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Methods/method%20HTTPUploadThroughPost.htm">HTTPUploadThroughPost()</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadAllThroughPostAsPDF.htm">HTTPUploadAllThroughPostAsPDF()</a></code>
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.HTTPUploadAllThroughPostAsPDF(
+    "localhost", 
+    "SaveToFile.aspx", 
+    "DWT.pdf", 
+    function(){
+        //success
+    }, 
+    function () {
+        alert("ErrorString - " + DWObject.ErrorString + "; HTTPPostResponseString - " + DWObject.HTTPPostResponseString);
+    }
+);
+</pre>
+        </code>
+    </div>
+</body>
+</html>

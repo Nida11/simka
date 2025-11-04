@@ -1,0 +1,94 @@
+﻿<html>
+<head>
+    <title>Property PageSize - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20PageSize.htm'>PageSize</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>PageSize</h1>
+        <h3>Description</h3>
+        <p>
+            Returns or sets the page size the Source uses to acquire image data.
+        </p>
+        <h3>Data type</h3>
+        <code class="type">EnumDWT_CapSupportedSizes (short)</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.PageSize = ...;</p>
+        </div>
+        <h3>Remarks</h3>
+
+        <table>
+            <tr><th>Allowed Values</th><th>Page size</th></tr>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_NONE(0)</td><td>None</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A4(1)</td><td>A4LETTER, A4</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_B5(2)</td><td>B5LETTER, JISB5</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_USLETTER(3)</td><td>USLETTER</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_USLEGAL(4)</td><td>USLEGAL</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A5(5)</td><td>A5</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB4(6)</td><td>B4, ISOB4</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB6(7)</td><td>B6, ISOB6</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_USLEDGER(9)</td><td>USLEDGER</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_USEXECUTIVE(10)</td><td>USEXECUTIVE</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A3(11)</td><td>A3</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB3(12)</td><td>B3, ISOB3</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A6(13)</td><td>A6</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C4(14)</td><td>C4</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C5(15)</td><td>C5</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C6(16)</td><td>C6</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_4A0(17)</td><td>4A0</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_2A0(18)</td><td>2A0</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A0(19)</td><td>A0</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A1(20)</td><td>A1</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A2(21)</td><td>A2</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A7(22)</td><td>A7</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A8(23)</td><td>A8</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A9(24)</td><td>A9</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_A10(25)</td><td>A10</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB0(26)</td><td>ISOB0</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB1(27)</td><td>ISOB1</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB2(28)</td><td>ISOB2</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB5(29)</td><td>ISOB5</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB7(30)</td><td>ISOB7</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB8(31)</td><td>ISOB8</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB9(32)</td><td>ISOB9</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_ISOB10(33)</td><td>ISOB10</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB0(34)</td><td>JISB0</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB1(35)</td><td>JISB1</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB2(36)</td><td>JISB2</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB3(37)</td><td>JISB3</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB4(38)</td><td>JISB4</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB6(39)</td><td>JISB6</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB7(40)</td><td>JISB7</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB8(41)</td><td>JISB8</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB9(42)</td><td>JISB9</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_JISB10(43)</td><td>JISB10</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C0(44)</td><td>C0</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C1(45)</td><td>C1</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C2(46)</td><td>C2</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C3(47)</td><td>C3</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C7(48)</td><td>C7</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C8(49)</td><td>C8</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C9(50)</td><td>C9</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_C10(51)</td><td>C10</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_USEXECUTIVE(52)</td><td>USEXECUTIVE</td>
+            <tr><td>EnumDWT_CapSupportedSizes.TWSS_BUSINESSCARD(53)</td><td>BUSINESSCARD</td>
+        </table>
+
+        <p class="notice">Set this property after <a href="../Methods/method%20OpenSource.htm">OpenSource()</a> and before <a href="../Methods/method%20AcquireImage.htm">AcquireImage()</a>.</p>
+        <p>
+            When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <code><a href="../Methods/method%20OpenSource.htm">OpenSource()</a></code>
+    </div>
+</body>
+</html>

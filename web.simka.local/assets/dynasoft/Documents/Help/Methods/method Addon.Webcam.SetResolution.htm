@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+    <title>Method Addon.Webcam.SetResolution - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href=''>Addon.Webcam.SetResolution</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.Webcam.SetResolution()</h1>
+        <h3>Description</h3>
+        <p>Sets the resolution for the current webcam.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .Addon.Webcam.SetResolution(string resolution);               
+            </p>
+        </div>
+
+        <h3>Parameters</h3>
+        <code class="type">&lt;string&gt;</code> <code>resolution</code>: Specifies the resolution to use.<br />
+
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+
+        <h3>Remarks</h3>
+        <p>
+            The method should be called after <code><a href="method%20Addon.Webcam.SelectSource.htm">Addon.Webcam.SelectSource</a></code>. If there is only one data source available, it will be selected automatically. 
+		</p>
+		<p class="notice">Please make sure to use a resolution that the current webcam supports. 
+        </p>
+
+        <h3>Example</h3>
+         <code class="language-javascript">
+            <pre>
+if (DWObject)
+  {
+   DWObject.Addon.Webcam.SetResolution("1280 x 720"); 
+   // Please pay attention to the format. And make sure to use the character 'x' instead of the multiplication sign.
+  }</pre>
+         </code>
+
+   
+        <h3>See Also</h3>
+        <p>
+         <code><a href="method%20Addon.Webcam.GetResolution.htm">Addon.Webcam.GetResolution</a></code>
+        </p>   
+
+    </div>
+</body>
+</html>

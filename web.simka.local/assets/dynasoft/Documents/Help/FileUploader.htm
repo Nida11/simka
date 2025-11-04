@@ -1,0 +1,287 @@
+﻿<html>
+
+<head>
+    <title>Module FileUploader - Dynamsoft SDKs</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="Scripts/common.js" type="text/javascript"></script>
+</head>
+
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='FileUploader.htm'>File Uploader</a>
+    </div>
+
+    <div class='content' id='content'>
+        <h1>Introduction</h1>
+
+        <p>The
+            <strong>FileUploader</strong> is an independent module that handles the uploading of files. It's released with Dynamic
+            Web TWAIN version 14.0. Once a upload job starts, it no longer relies on Dynamic Web TWAIN which means the upload
+            carries on even after you have closed the browser. The files/data to upload is stored temporarily on the local
+            disk (typically in the path C:\Windows\SysWOW64\Dynamsoft\DynamsoftService\upload) before they're uploaded and
+            will be purged as soon as they're uploaded or when the Dynamsoft Service restarts.</p>
+        <h1>Global Methods</h1>
+        <ul style="list-style: none">
+            <li>
+                <h2>Init()</h2>
+                <p>This is a global API that initiates the FileUploader module.</p>
+                <h3>Syntax</h3>
+                <div class="spec">
+                    <p>
+                        Dynamsoft.FileUploader.Init(remoteFile, asyncSuccessFunc, asyncFailureFunc);
+                    </p>
+                </div>
+                <h3>Parameters</h3>
+                <code class="type">string</code>
+                <code>remoteFile</code>: an URL that specifies the path of the FileUploader library on the server. In v14.0, the library is installed
+                together with the
+                <strong>core|scan</strong> module of Dynamic Web TWAIN, so you can set this parameter to be an empty string.
+                <br />
+                <br />
+
+                <code class="type">&lt;OnSuccess function&gt;</code>
+                <code>asyncSuccessFunc</code>: callback function triggered when initiation succeeds, this function has a primitive parameter which refers
+                to an UploadManager object that has just been initiated.
+                <br />
+                <br />
+                <code class="type">&lt;OnFailure function&gt;</code>
+                <code>asyncFailureFunc</code>: callback function triggered when initiation fails. When the FileUploader library (.dll) is not installed
+                or the installed file is a different version,
+                <strong>Init</strong> will try to download and install the library from the path specified by remoteFile. If that
+                fails, this callback function is triggered.
+                <p class="specialnotice">
+                    Please refer to the function prototype
+                    <a href="Programmer%20Guide/Function%20Prototypes.htm#OnSuccess">
+                        <code class="type">OnSuccess</code>
+                    </a> or
+                    <a href="Programmer%20Guide/Function%20Prototypes.htm#OnFailure">
+                        <code class="type">OnFailure</code>
+                    </a>.
+                </p>
+                <h3>Example</h3>
+                <code class="language-javascript">
+                    <pre>var dsUploadManager; 
+Dynamsoft.FileUploader.Init('', 
+  function(obj) { dsUploadManager = obj;}, 
+  function(errorcode, errorstring){alert(errorstring);}
+);</pre>
+                </code>
+                <hr>
+            </li>
+		</ul>
+		<h1>Methods</h1>
+        <ul style="list-style: none">
+            <li>
+                <h2>CreateJob()</h2>
+                <p>Create a upload job.</p>
+                <h3>Syntax</h3>
+                <div class="spec">
+                    <p>.CreateJob();
+                    </p>
+                </div>
+
+                <h3>Return Value</h3>
+                <code class="type">object</code> A job object. For instance:
+                <code class="language-javascript">{HttpHeader: {}, documents: Array(0), Version: "1.0", HttpVersion: "1.1", ServerUrl: "", …}</code>
+                <h3>Parameters</h3>
+                <code>none</code>
+                <h3>Example</h3>
+                <code class="language-javascript">
+                        <pre>var job = dsUploadManager.CreateJob();</pre>
+                    </code>
+                <hr>
+            </li>
+            <li>
+                <h2>Run()</h2>
+                <p>Starts to execute an upload job.</p>
+                <h3>Syntax</h3>
+                <div class="spec">
+                    <p>.Run(obj);
+                    </p>
+                </div>
+
+                <h3>Parameters</h3>
+                <code class="type">object</code>
+                <code>obj</code>: A job object.
+                <h3>Example</h3>
+                <code class="language-javascript">
+                        <pre>var job = dsUploadManager.CreateJob();
+dsUploadManager.Run(job);</pre>
+                    </code>
+                <hr>
+            </li>
+            <li>
+                <h2>Cancel()</h2>
+                <p>Cancels a upload job after it has started and before it completes. Normally this is done in the event
+                    <code>OnUploadTransferPercentage</code>.</p>
+                <h3>Syntax</h3>
+                <div class="spec">
+                    <p>.Cancel(obj)
+                    </p>
+                </div>
+                <h3>Parameters</h3>
+                <code class="type">object</code>
+                <code>obj</code>: A job object.
+                <h3>Example</h3>
+                <code class="language-javascript">
+                        <pre>var job = dsUploadManager.CreateJob();
+job.OnUploadTransferPercentage= FileUpload_OnUploadTransferPercentage;
+dsUploadManager.Run(job);
+function FileUpload_OnUploadTransferPercentage(job, iPercentage)
+{	
+    console.log('job cancelled!')
+    dsUploadManager.Cancel(job);
+}</pre>
+                    </code>
+                <hr>
+            </li>
+            <li>
+                <h2>CancelAllUpload()</h2>
+                <p>Cancels all upload jobs.</p>
+                <h3>Syntax</h3>
+                <div class="spec">
+                    <p>.CancelAllUpload()
+                    </p>
+                </div>
+                <h3>Parameters</h3>
+                <code>none</code>
+                <h3>Example</h3>
+                <code class="language-javascript">
+                        <pre>dsUploadManager.CancelAllUpload();</pre>
+                    </code>
+                <hr>
+            </li>
+        </ul>
+        <h1>Properties</h1>
+        <ul style="list-style: none">
+            <li>
+                <h2>ServerUrl</h2>
+                <p>
+                    <code class="type">string</code>
+                    <br />
+                    <br />Specifies the target of the HTTP Post Request of the upload job. This typically is a file on the server.
+                    For example:
+                    <br />
+                    <code class="language-javascript">job.ServerUrl = 'http://www.dynamsoft.com/ScanAndUpload/Actions/SaveToFile.aspx';</code>
+                </p>
+            </li>
+            <li>
+                <h2>HttpHeader</h2>
+                <p>
+                    <code class="type">object</code>
+                    <br />
+                    <br />Specifies headers in the the HTTP Post Request of the upload job. For example:
+                    <br />
+                    <code class="language-javascript">job.HttpHeader["header1"] = "valueforHeader1";</code>
+                </p>
+                <p class="specialnotice">
+                    By default,
+                    <i>HttpHeader</i> is an empty object. If left as it is, default headers are used. Otherwise, the headers
+                    set by this property will be added to the HTTP Post Request or replace existing ones with the same names.
+                </p>
+            </li>
+            <li>
+                <h2>SourceValue</h2>
+                <p>
+                    <code class="type">object</code>
+                    <br />
+                    <br />Specifies the files to be uploaded and the name for it. The files are specified by URLs which can be
+                    created with the method
+                    <a href="Methods/method%20GenerateURLForUploadData.htm">GenerateURLForUploadData</a>. This object has a method
+                    <code>Add</code> to add file to the job. For example:
+                    <br />
+                    <code class="language-javascript"><pre>var fileToUpload = DWObject.GenerateURLForUploadData([0,1,2], EnumDWT_ImageType.IT_PDF);
+job.SourceValue.Add(fileToUpload, "uploadedFile.pdf");
+job.SourceValue.Add("D:\\fieltoupload.pdf", "uploadedFile2.pdf");</pre></code>
+                </p>
+            </li>
+			<li>
+                <h2>FormFiled</h2>
+                <p>
+                    <code class="type">object</code>
+                    <br />
+                    <br />Specifies extra fields to be uploaded in the same HTTP post.
+                    <br />
+                    <code class="language-javascript"><pre>job.FormField.Add("Token", "ThisIsAToken");</pre></code>
+                </p>
+            </li>
+        </ul>
+        <h1>Events</h1>
+        <ul style="list-style: none">
+            <li>
+                <h2>OnUploadTransferPercentage</h2>
+                <p>The event is triggered during the execution of an upload job. It has a parameter which specifies the percentage
+                    of the completion of the job. For example:
+                    <br />
+                    <code class="language-javascript"><pre>job.OnUploadTransferPercentage = FileUpload_OnUploadTransferPercentage; 
+function FileUpload_ OnUploadTransferPercentage (obj, sPercentage){
+    console.log(sPercentage);
+}</pre></code>
+                </p>
+            </li>
+            <li>
+                <h2>OnRunSuccess</h2>
+                <p>The event is triggered when an upload job completes successfully. For example:
+                    <br />
+                    <code class="language-javascript"><pre>job.OnRunSuccess = FileUpload_OnRunSuccess; 
+function FileUpload_OnRunSuccess(obj) { 
+    alert(' upload completed ');
+}</pre></code>
+                </p>
+            </li>
+            <li>
+                <h2>OnRunFailure</h2>
+                <p>The event is triggered when an upload job fails. For example:
+                    <br />
+                    <code class="language-javascript"><pre>job.OnRunFailure = FileUpload_OnRunFailure; 
+function FileUpload_OnRunFailure(obj, errorCode, errorString) { 
+    alert(errorString); 
+}</pre></code>
+                </p>
+            </li>
+        </ul>
+        <h1>Example Code</h1>
+        <code class="language-javascript">
+<pre>var fileUploaderManager;
+
+function onInitSuccess(objFileUploader) {
+    fileUploaderManager = objFileUploader;
+}
+
+function onInitFailure(errorCode, errorString) {
+    alert('Init failed: ' + errorString);
+};
+
+Dynamsoft.FileUploader.Init("", onInitSuccess, onInitFailure);
+
+function UploadFile() {
+    var job = fileUploaderManager.CreateJob();
+    job.ServerUrl ='http://yourserver/youractionpage.aspx';
+    job.FileName = "sample.jpg";
+    job.ImageType = EnumDWT_ImageType.IT_JPG;
+    DWObject.GenerateURLForUploadData([0],EnumDWT_ImageType.IT_JPG,function(res) {
+		job.SourceValue.Add(res, "sample.jpg");
+		job.OnUploadTransferPercentage = FileUpload_OnUploadTransferPercentage;
+		job.OnRunSuccess = FileUpload_OnRunSuccess;
+		job.OnRunFailure = FileUpload_OnRunFailure;
+		fileUploaderManager.Run(job);
+	}, function(errorCode, errorString) {console.log(errorString);});
+}
+
+function FileUpload_OnUploadTransferPercentage(job, sPercentage) {
+    console.log(sPercentage);
+}
+
+function FileUpload_OnRunFailure(job, errorCode, errorString, responseString) {
+    alert(responseString);
+}
+
+function FileUpload_OnRunSuccess(job, responseString) {
+    alert(' upload completed! ' + responseString);
+}</pre></code>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>API Doc - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <link rel="stylesheet" type="text/css" href="Styles/docs.css">
+    <script type="text/javascript" src="Scripts/common.js"></script>
+</head>
+<body id="docs-page">
+    <div id="body">
+        <div id="docs-index-content">
+
+            <a style="display: inline-block; height: 1px;" id="001"></a>
+            <h1 style="text-align: center;">Dynamic Web TWAIN Core SDK APIs</h1>
+            <!--<h3 style="text-align: right; margin: 20PX 100px -20PX 0;"><a class="externallink" href="#002">See add-ons APIs</a></h3>-->
+            <div class="seperator"></div>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="32%">
+                            <h3><a style="color: #FE8E14;" target="_blank" class="externallink" href="http://developer.dynamsoft.com/dwt/kb/2040">How to use the license</a></h3>
+                            <h3>Basic Scanning</h3>
+                            <ul class="toc">
+                                <li class="method"><a href="Methods/method%20AcquireImage.htm">AcquireImage</a></li>
+                                <li class="property"><a href="Properties/prop%20BitDepth.htm">BitDepth</a></li>
+                                <li class="method"><a href="Methods/method%20CloseSource.htm">CloseSource</a></li>
+                                <li class="method"><a href="Methods/method%20DisableSource.htm">DisableSource</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAppendImage.htm">IfAppendImage</a></li>
+                                <li class="property"><a href="Properties/prop%20IfDisableSourceAfterAcquire.htm">IfDisableSourceAfterAcquire</a></li>
+                                <li class="property"><a href="Properties/prop%20IfDuplexEnabled.htm">IfDuplexEnabled</a></li>
+                                <li class="property"><a href="Properties/prop%20IfFeederEnabled.htm">IfFeederEnabled</a></li>
+                                <li class="property"><a href="Properties/prop%20IfShowUI.htm">IfShowUI</a></li>
+                                <li class="property"><a class="why" title="Only used on MAC, no effect on Windows" href="Properties/prop%20ImageCaptureDriverType.htm">ImageCaptureDriverType</a></li>
+                                <li class="event"><a href="Events/Event%20OnPostAllTransfers.htm">OnPostAllTransfers</a></li>
+                                <li class="event"><a href="Events/Event%20OnPostTransfer.htm">OnPostTransfer</a></li>
+                                <li class="method"><a href="Methods/method%20OpenSource.htm">OpenSource</a></li>
+                                <li class="property"><a href="Properties/prop%20PageSize.htm">PageSize</a></li>
+                                <li class="property"><a href="Properties/prop%20PixelType.htm">PixelType</a></li>
+                                <li class="property"><a href="Properties/prop%20Resolution.htm">Resolution</a></li>
+                                <li class="method"><a href="Methods/method%20SelectSource.htm">SelectSource</a></li>
+                                <li class="method"><a href="Methods/method%20SelectSourceByIndex.htm">SelectSourceByIndex</a></li>
+                                <li class="method"><a href="Methods/method%20SetOpenSourceTimeout.htm">SetOpenSourceTimeout</a></li>
+                                <li class="property"><a href="Properties/prop%20SourceCount.htm">SourceCount</a></li>
+                            </ul>
+                            <h3>Advanced Settings</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20Brightness.htm">Brightness</a></li>
+                                <li class="method"><a href="Methods/method%20CancelAllPendingTransfers.htm">CancelAllPendingTransfers</a></li>
+                                <li class="method"><a href="Methods/method%20CloseSourceManager.htm">CloseSourceManager</a></li>
+                                <li class="method"><a href="Methods/method%20CloseWorkingProcess.htm">CloseWorkingProcess</a></li>
+                                <li class="property"><a href="Properties/prop%20Contrast.htm">Contrast</a></li>
+                                <li class="property"><a href="Properties/prop%20CurrentSourceName.htm">CurrentSourceName</a></li>
+                                <li class="property"><a href="Properties/prop%20DataSourceStatus.htm">DataSourceStatus</a></li>
+                                <li class="property"><a href="Properties/prop%20DefaultSourceName.htm">DefaultSourceName</a></li>
+                                <li class="property"><a href="Properties/prop%20Duplex.htm">Duplex</a></li>
+                                <li class="method"><a href="Methods/method%20EnableSource.htm">EnableSource</a></li>
+                                <li class="method"><a href="Methods/method%20FeedPage.htm">FeedPage</a></li>
+                                <li class="method"><a href="Methods/method%20GetCustomDSData.htm">GetCustomDSData</a></li>
+                                <li class="method"><a href="Methods/method%20GetCustomDSDataEx.htm">GetCustomDSDataEx</a></li>
+                                <li class="method"><a href="Methods/method%20GetDeviceType.htm">GetDeviceType</a></li>
+                                <li class="method"><a href="Methods/method%20GetSourceNameItems.htm">GetSourceNameItems</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAutoBright.htm">IfAutoBright</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAutoDiscardBlankpages.htm">IfAutoDiscardBlankpages</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAutoFeed.htm">IfAutoFeed</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAutomaticBorderDetection.htm">IfAutomaticBorderDetection</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAutomaticDeskew.htm">IfAutomaticDeskew</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAutoScan.htm">IfAutoScan</a></li>
+                                <li class="property"><a href="Properties/prop%20IfFeederLoaded.htm">IfFeederLoaded</a></li>
+                                <li class="property"><a href="Properties/prop%20IfPaperDetectable.htm">IfPaperDetectable</a></li>
+                                <li class="property"><a href="Properties/prop%20IfShowIndicator.htm">IfShowIndicator</a></li>
+                                <li class="property"><a href="Properties/prop%20IfUIControllable.htm">IfUIControllable</a></li>
+                                <li class="property"><a href="Properties/prop%20IfUseTwainDSM.htm">IfUseTwainDSM</a></li>
+                                <li class="event"><a href="Events/Event%20OnPreAllTransfers.htm">OnPreAllTransfers</a></li>
+                                <li class="event"><a href="Events/Event%20OnPreTransfer.htm">OnPreTransfer</a></li>
+                                <li class="event"><a href="Events/Event%20OnSourceUIClose.htm">OnSourceUIClose</a></li>
+                                <li class="method"><a href="Methods/method%20OpenSourceManager.htm">OpenSourceManager</a></li>
+                                <li class="property"><a href="Properties/prop%20PendingXfers.htm">PendingXfers</a></li>
+                                <li class="property"><a href="Properties/prop%20PixelFlavor.htm">PixelFlavor</a></li>
+                                <li class="method"><a href="Methods/method%20ResetImageLayout.htm">ResetImageLayout</a></li>
+                                <li class="method"><a href="Methods/method%20RewindPage.htm">RewindPage</a></li>
+                                <li class="method"><a href="Methods/method%20SetCustomDSData.htm">SetCustomDSData</a></li>
+                                <li class="method"><a href="Methods/method%20SetCustomDSDataEx.htm">SetCustomDSDataEx</a></li>
+                                <li class="method"><a href="Methods/method%20SetFileXferInfo.htm">SetFileXferInfo</a></li>
+                                <li class="method"><a href="Methods/method%20SetImageLayout.htm">SetImageLayout</a></li>
+                                <li class="property"><a href="Properties/prop%20TransferMode.htm">TransferMode</a></li>
+                                <li class="property"><a href="Properties/prop%20Unit.htm">Unit</a></li>
+                                <li class="property"><a href="Properties/prop%20XferCount.htm">XferCount</a></li>
+                            </ul>
+                            <h3>Capability Negotiation</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20Capability.htm">Capability</a></li>
+                                <li class="property"><a href="Properties/prop%20CapCurrentIndex.htm">CapCurrentIndex</a></li>
+                                <li class="property"><a href="Properties/prop%20CapCurrentValue.htm">CapCurrentValue</a></li>
+                                <li class="property"><a href="Properties/prop%20CapDefaultIndex.htm">CapDefaultIndex</a></li>
+                                <li class="property"><a href="Properties/prop%20CapDefaultValue.htm">CapDefaultValue</a></li>
+                                <li class="method"><a href="Methods/method%20CapGet.htm">CapGet</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetCurrent.htm">CapGetCurrent</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetDefault.htm">CapGetDefault</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetFrameBottom.htm">CapGetFrameBottom</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetFrameLeft.htm">CapGetFrameLeft</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetFrameRight.htm">CapGetFrameRight</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetFrameTop.htm">CapGetFrameTop</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetHelp.htm">CapGetHelp</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetLabel.htm">CapGetLabel</a></li>
+                                <li class="method"><a href="Methods/method%20CapGetLabels.htm">CapGetLabels</a></li>
+                                <li class="method"><a href="Methods/method%20CapIfSupported.htm">CapIfSupported</a></li>
+                                <li class="property"><a href="Properties/prop%20CapMaxValue.htm">CapMaxValue</a></li>
+                                <li class="property"><a href="Properties/prop%20CapMinValue.htm">CapMinValue</a></li>
+                                <li class="property"><a href="Properties/prop%20CapNumItems.htm">CapNumItems</a></li>
+                                <li class="method"><a href="Methods/method%20CapReset.htm">CapReset</a></li>
+                                <li class="method"><a href="Methods/method%20CapSet.htm">CapSet</a></li>
+                                <li class="method"><a href="Methods/method%20CapSetFrame.htm">CapSetFrame</a></li>
+                                <li class="property"><a href="Properties/prop%20CapStepSize.htm">CapStepSize</a></li>
+                                <li class="property"><a href="Properties/prop%20CapType.htm">CapType</a></li>
+                                <li class="property"><a href="Properties/prop%20CapValue.htm">CapValue</a></li>
+                                <li class="property"><a href="Properties/prop%20CapValueString.htm">CapValueString</a></li>
+                                <li class="property"><a href="Properties/prop%20CapValueType.htm">CapValueType</a></li>
+                                <li class="method"><a href="Methods/method%20GetCapItems.htm">GetCapItems</a></li>
+                                <li class="method"><a href="Methods/method%20GetCapItemsString.htm">GetCapItemsString</a></li>
+                                <li class="method"><a href="Methods/method%20SetCapItems.htm">SetCapItems</a></li>
+                                <li class="method"><a href="Methods/method%20SetCapItemsString.htm">SetCapItemsString</a></li>
+                            </ul>
+                        </td>
+                        <td width="32%">
+                            <h3><a style="color: #FE8E14;" class="externallink" href="Programmer%20Guide/Function%20Prototypes.htm">Function Prototypes</a></h3>
+                            <h3>Runtime Info</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20BlankImageCurrentStdDev.htm">BlankImageCurrentStdDev</a></li>
+                                <li class="property"><a href="Properties/prop%20BlankImageMaxStdDev.htm">BlankImageMaxStdDev</a></li>
+                                <li class="property"><a href="Properties/prop%20BlankImageThreshold.htm">BlankImageThreshold</a></li>
+                                <li class="property"><a href="Properties/prop%20CurrentImageIndexInBuffer.htm">CurrentImageIndexInBuffer</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageBitDepth.htm">GetImageBitDepth</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageHeight.htm">GetImageHeight</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageSize.htm">GetImageSize</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageSizeWithSpecifiedType.htm">GetImageSizeWithSpecifiedType</a></li>
+								<li class="method"><a class="why" title="Only used in the HTML5 edition." href="Methods/method%20GetImageURL.htm">GetImageURL</a></li>
+								<li class="method"><a class="why" title="Only used in the HTML5 edition." href="Methods/method%20GetImagePartURL.htm">GetImagePartURL</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageWidth.htm">GetImageWidth</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageXResolution.htm">GetImageXResolution</a></li>
+                                <li class="method"><a href="Methods/method%20GetImageYResolution.htm">GetImageYResolution</a></li>
+                                <li class="method"><a href="Methods/method%20GetSelectedImageIndex.htm">GetSelectedImageIndex</a></li>
+                                <li class="method"><a href="Methods/method%20GetSelectedImagesSize.htm">GetSelectedImagesSize</a></li>
+                                <li class="method"><a href="Methods/method%20GetSkewAngle.htm">GetSkewAngle</a></li>
+                                <li class="method"><a href="Methods/method%20GetSkewAngleEx.htm">GetSkewAngleEx</a></li>
+                                <li class="property"><a href="Properties/prop%20HowManyImagesInBuffer.htm">HowManyImagesInBuffer</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutDocumentNumber.htm">ImageLayoutDocumentNumber</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutFrameBottom.htm">ImageLayoutFrameBottom</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutFrameLeft.htm">ImageLayoutFrameLeft</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutFrameNumber.htm">ImageLayoutFrameNumber</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutFrameRight.htm">ImageLayoutFrameRight</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutFrameTop.htm">ImageLayoutFrameTop</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageLayoutPageNumber.htm">ImageLayoutPageNumber</a></li>
+                                <li class="property"><a href="Properties/prop%20ImagePixelType.htm">ImagePixelType</a></li>
+                                <li class="method"><a href="Methods/method%20IsBlankImageExpress.htm">IsBlankImageExpress</a></li>
+                                <li class="property"><a href="Properties/prop%20MagData.htm">MagData</a></li>
+                                <li class="property"><a href="Properties/prop%20MagType.htm">MagType</a></li>
+                                <li class="property"><a href="Properties/prop%20SelectedImagesCount.htm">SelectedImagesCount</a></li>
+                            </ul>
+                            <h3>Display</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20BackgroundColor.htm">BackgroundColor</a></li>
+                                <li class="property"><a href="Properties/prop%20BackgroundFillColor.htm">BackgroundFillColor</a></li>
+                                <li class="property"><a href="Properties/prop%20FitWindowType.htm">FitWindowType</a></li>
+                                <li class="property"><a href="Properties/prop%20Height.htm">Height</a></li>
+                                <li class="property"><a href="Properties/prop%20IfFitWindow.htm">IfFitWindow</a></li>
+								<li class="property"><a class="why" title="Only used in the ActiveX and HTML5 edition." href="Properties/prop%20IfAutoScroll.htm">IfAutoScroll</a></li>
+                                <li class="property"><a href="Properties/prop%20ImageMargin.htm">ImageMargin</a></li>
+                                <li class="property"><a href="Properties/prop%20MaxImagesInBuffer.htm">MaxImagesInBuffer</a></li>
+                                <li class="property"><a href="Properties/prop%20MouseShape.htm">MouseShape</a></li>
+                                <li class="event"><a href="Events/Event%20OnTopImageInTheViewChanged.htm">OnTopImageInTheViewChanged</a></li>
+                                <li class="property"><a href="Properties/prop%20SelectionImageBorderColor.htm">SelectionImageBorderColor</a></li>
+                                <li class="method"><a href="Methods/method%20SetViewMode.htm">SetViewMode</a></li>
+                                <li class="property"><a href="Properties/prop%20Width.htm">Width</a></li>
+                                <li class="property"><a href="Properties/prop%20Zoom.htm">Zoom</a></li>
+                                <li class="property"><a class="why" title="Only used in the HTML5 edition." href="Properties/prop%20ShowPageNumber.htm">ShowPageNumber</a></li>
+                            </ul>
+                            <h3>Clicking & Hovering</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20MouseX.htm">MouseX</a></li>
+                                <li class="property"><a href="Properties/prop%20MouseY.htm">MouseY</a></li>
+                                <li class="event"><a href="Events/Event%20OnMouseClick.htm">OnMouseClick</a></li>
+                                <li class="event"><a href="Events/Event%20OnMouseDoubleClick.htm">OnMouseDoubleClick</a></li>
+                                <li class="event"><a href="Events/Event%20OnMouseMove.htm">OnMouseMove</a></li>
+                                <li class="event"><a href="Events/Event%20OnMouseRightClick.htm">OnMouseRightClick</a></li>
+                            </ul>
+                            <h3>General Purpose</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20BufferMemoryLimit.htm">BufferMemoryLimit</a></li>
+                                <li class="property"><a href="Properties/prop%20IfAllowLocalCache.htm">IfAllowLocalCache</a></li>
+                                <li class="property"><a href="Properties/prop%20LogLevel.htm">LogLevel</a></li>
+                                <li class="property"><a href="Properties/prop%20Manufacturer.htm">Manufacturer</a></li>
+                                <li class="property"><a href="Properties/prop%20ProductFamily.htm">ProductFamily</a></li>
+                                <li class="property"><a href="Properties/prop%20ProductKey.htm">ProductKey</a></li>
+                                <li class="property"><a href="Properties/prop%20ProductName.htm">ProductName</a></li>
+                                <li class="property"><a href="Properties/prop%20VersionInfo.htm">VersionInfo</a></li>
+                                <li class="method"><a href="Methods/method%20SetLanguage.htm">SetLanguage</a></li>
+                            </ul>
+                            <h3>Encoding & Decoding</h3>
+                            <ul class="toc">
+                                <li class="method"><a href="Methods/method%20ClearTIFFCustomTag.htm">ClearTiffCustomTag</a></li>
+								<li class="method"><a class="why" title="Only used in the HTML5 edition." href="Methods/method%20ConvertToBase64.htm">ConvertToBase64</a></li>
+								<li class="method"><a class="why" title="Only used in the HTML5 edition." href="Methods/method%20ConvertToBlob.htm">ConvertToBlob</a></li>
+                                <li class="property"><a href="Properties/prop%20IfOpenImageWithGDIPlus.htm">IfOpenImageWithGDIPlus</a></li>
+                                <li class="property"><a href="Properties/prop%20IfTiffMultiPage.htm">IfTiffMultiPage</a></li>
+                                <li class="property"><a href="Properties/prop%20JPEGQuality.htm">JPEGQuality</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFAuthor.htm">PDFAuthor</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFCompressionType.htm">PDFCompressionType</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFCreationDate.htm">PDFCreationDate</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFCreator.htm">PDFCreator</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFKeywords.htm">PDFKeywords</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFModifiedDate.htm">PDFModifiedDate</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFProducer.htm">PDFProducer</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFSubject.htm">PDFSubject</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFTitle.htm">PDFTitle</a></li>
+                                <li class="property"><a href="Properties/prop%20PDFVersion.htm">PDFVersion</a></li>
+                                <li class="method"><a href="Methods/method%20SetTIFFCustomTag.htm">SetTiffCustomTag</a></li>
+                                <li class="property"><a href="Properties/prop%20TIFFCompressionType.htm">TIFFCompressionType</a></li>
+                            </ul>
+                            <h3>Utilities</h3>
+                            <ul class="toc">
+                                <li class="property"><a href="Properties/prop%20ErrorString.htm">ErrorString</a></li>
+                                <li class="property"><a href="Properties/prop%20ErrorCode.htm">ErrorCode</a></li>
+                                <li class="property"><a href="Properties/prop%20IfShowProgressBar.htm">IfShowProgressBar</a></li>
+                                <li class="event"><a href="Events/Event%20OnBitmapChanged.htm">OnBitmapChanged</a></li>
+                                <li class="event"><a href="Events/Event%20OnWebTwainReady.htm">OnWebTwainReady</a></li>
+                                <li class="method"><a href="Methods/method%20Print.htm">Print</a></li>
+                                <li class="method"><a href="Methods/method%20RegisterEvent.htm">RegisterEvent</a></li>
+                                <li class="method"><a href="Methods/method%20UnregisterEvent.htm">UnregisterEvent</a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3><a style="color: #FE8E14;" class="externallink" href="Programmer%20Guide/Error%20List.htm">Error List</a></h3>
+                            <h3>Editing</h3>
+                            <ul class="toc">
+                                <li class="method"><a href="Methods/method%20AddText.htm">AddText</a></li>
+                                <li class="method"><a href="Methods/method%20ChangeBitDepth.htm">ChangeBitDepth</a></li>
+                                <li class="method"><a href="Methods/method%20ChangeImageSize.htm">ChangeImageSize</a></li>
+                                <li class="method"><a href="Methods/method%20ConvertToGrayScale.htm">ConvertToGrayScale</a></li>
+                                <li class="method"><a href="Methods/method%20CopyToClipboard.htm">CopyToClipboard</a></li>
+                                <li class="method"><a href="Methods/method%20CreateTextFont.htm">CreateTextFont</a></li>
+                                <li class="method"><a href="Methods/method%20Crop.htm">Crop</a></li>
+                                <li class="method"><a href="Methods/method%20CropToClipboard.htm">CropToClipboard</a></li>
+                                <li class="method"><a href="Methods/method%20CutFrameToClipboard.htm">CutFrameToClipboard</a></li>
+                                <li class="method"><a href="Methods/method%20CutToClipboard.htm">CutToClipboard</a></li>
+                                <li class="method"><a href="Methods/method%20Erase.htm">Erase</a></li>
+                                <li class="method"><a href="Methods/method%20Flip.htm">Flip</a></li>
+                                <li class="method"><a href="Methods/method%20Mirror.htm">Mirror</a></li>
+                                <li class="method"><a href="Methods/method%20MoveImage.htm">MoveImage</a></li>
+                                <li class="event"><a href="Events/Event%20OnImageAreaDeselected.htm">OnImageAreaDeSelected</a></li>
+                                <li class="event"><a href="Events/Event%20OnImageAreaSelected.htm">OnImageAreaSelected</a></li>
+                                <li class="method"><a href="Methods/method%20OverlayRectangle.htm">OverlayRectangle</a></li>
+                                <li class="method"><a href="Methods/method%20RemoveAllImages.htm">RemoveAllImages</a></li>
+                                <li class="method"><a href="Methods/method%20RemoveAllSelectedImages.htm">RemoveAllSelectedImages</a></li>
+                                <li class="method"><a href="Methods/method%20RemoveImage.htm">RemoveImage</a></li>
+                                <li class="method"><a href="Methods/method%20Rotate.htm">Rotate</a></li>
+                                <li class="method"><a href="Methods/method%20RotateEx.htm">RotateEx</a></li>
+                                <li class="method"><a href="Methods/method%20RotateLeft.htm">RotateLeft</a></li>
+                                <li class="method"><a href="Methods/method%20RotateRight.htm">RotateRight</a></li>
+                                <li class="property"><a href="Properties/prop%20SelectionRectAspectRatio.htm">SelectionRectAspectRatio</a></li>
+                                <li class="method"><a href="Methods/method%20SetDPI.htm">SetDPI</a></li>
+                                <li class="method"><a href="Methods/method%20SetImageWidth.htm">SetImageWidth</a></li>
+                                <li class="method"><a href="Methods/method%20SetSelectedImageArea.htm">SetSelectedImageArea</a></li>
+                                <li class="method"><a href="Methods/method%20SetSelectedImageIndex.htm">SetSelectedImageIndex</a></li>
+                                <li class="method"><a href="Methods/method%20ShowImageEditor.htm">ShowImageEditor</a></li>
+                                <li class="method"><a href="Methods/method%20SwitchImage.htm">SwitchImage</a></li>
+                            </ul>
+                            <h3>Loading & Saving</h3>
+                            <ul class="toc">
+                                <li class="method"><a href="Methods/method%20FileExists.htm">FileExists</a></li>
+                                <li class="property"><a href="Properties/prop%20IfShowFileDialog.htm">IfShowFileDialog</a></li>
+                                <li class="method"><a href="Methods/method%20LoadDibFromClipboard.htm">LoadDibFromClipboard</a></li>
+                                <li class="method"><a href="Methods/method%20LoadImage.htm">LoadImage</a></li>
+                                <li class="method"><a href="Methods/method%20LoadImageEx.htm">LoadImageEx</a></li>
+                                <li class="method"><a href="Methods/method%20LoadImageFromBase64Binary.htm">LoadImageFromBase64Binary</a></li>
+                                <li class="event"><a href="Events/Event%20OnGetFilePath.htm">OnGetFilePath</a></li>
+                                <li class="event"><a href="Events/Event%20OnPostLoad.htm">OnPostLoad</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAllAsMultiPageTIFF.htm">SaveAllAsMultiPageTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAllAsPDF.htm">SaveAllAsPDF</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAsBMP.htm">SaveAsBMP</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAsJPEG.htm">SaveAsJPEG</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAsPDF.htm">SaveAsPDF</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAsPNG.htm">SaveAsPNG</a></li>
+                                <li class="method"><a href="Methods/method%20SaveAsTIFF.htm">SaveAsTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20SaveSelectedImagesAsMultiPagePDF.htm">SaveSelectedImagesAsMultiPagePDF</a></li>
+                                <li class="method"><a href="Methods/method%20SaveSelectedImagesAsMultiPageTIFF.htm">SaveSelectedImagesAsMultiPageTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20SaveSelectedImagesToBase64Binary.htm">SaveSelectedImagesToBase64Binary</a></li>
+                                <li class="method"><a href="Methods/method%20ShowFileDialog.htm">ShowFileDialog</a></li>
+                            </ul>
+                            <h3>File Uploader</h3>
+							<ul class="toc">
+								<li class="class"><a href="FileUploader.htm">FileUploader</a></li>
+                                <li class="method"><a href="Methods/method%20GenerateURLForUploadData.htm">GenerateURLForUploadData</a></li>
+							</ul>
+							<h3>Uploading & Downloading</h3>
+                            <ul class="toc">
+                                <li class="method"><a href="Methods/method%20ClearAllHTTPFormField.htm">ClearAllHTTPFormField</a></li>
+                                <li class="method"><a href="Methods/method%20FTPDownload.htm">FTPDownload</a></li>
+                                <li class="method"><a href="Methods/method%20FTPDownloadDirectly.htm">FTPDownloadDirectly</a></li>
+                                <li class="method"><a href="Methods/method%20FTPDownloadEx.htm">FTPDownloadEx</a></li>
+                                <li class="property"><a href="Properties/prop%20FTPPassword.htm">FTPPassword</a></li>
+                                <li class="property"><a href="Properties/prop%20FTPPort.htm">FTPPort</a></li>
+                                <li class="method"><a href="Methods/method%20FTPUpload.htm">FTPUpload</a></li>
+                                <li class="method"><a href="Methods/method%20FTPUploadAllAsMultiPageTIFF.htm">FTPUploadAllAsMultiPageTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20FTPUploadAllAsPDF.htm">FTPUploadAllAsPDF</a></li>
+                                <li class="method"><a href="Methods/method%20FTPUploadAsMultiPagePDF.htm">FTPUploadAsMultiPagePDF</a></li>
+                                <li class="method"><a href="Methods/method%20FTPUploadAsMultiPageTIFF.htm">FTPUploadAsMultiPageTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20FTPUploadEx.htm">FTPUploadEx</a></li>
+                                <li class="property"><a href="Properties/prop%20FTPUserName.htm">FTPUserName</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPDownload.htm">HTTPDownload</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPDownloadDirectly.htm">HTTPDownloadDirectly</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPDownloadEx.htm">HTTPDownloadEx</a></li>
+                                <li class="property"><a href="Properties/prop%20HttpFieldNameOfUploadedImage.htm">HttpFieldNameOfUploadedImage</a></li>
+                                <li class="property"><a href="Properties/prop%20HTTPPort.htm">HTTPPort</a></li>
+                                <li class="property"><a href="Properties/prop%20HTTPPostResponseString.htm">HTTPPostResponseString</a></li>
+								<li class="method"><a class="why" title="Only used in HTML5 edition." href="Methods/method%20HTTPUpload.htm">HTTPUpload</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPUploadAllThroughPostAsMultiPageTIFF.htm">HTTPUploadAllThroughPostAsMultiPageTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPUploadAllThroughPostAsPDF.htm">HTTPUploadAllThroughPostAsPDF</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPUploadThroughPost.htm">HTTPUploadThroughPost</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPUploadThroughPostAsMultiPagePDF.htm">HTTPUploadThroughPostAsMultiPagePDF</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPUploadThroughPostAsMultiPageTIFF.htm">HTTPUploadThroughPostAsMultiPageTIFF</a></li>
+                                <li class="method"><a href="Methods/method%20HTTPUploadThroughPostEx.htm">HTTPUploadThroughPostEx</a></li>
+                                <li class="property"><a href="Properties/prop%20IfPASVMode.htm">IfPASVMode</a></li>
+                                <li class="property"><a href="Properties/prop%20IfShowCancelDialogWhenImageTransfer.htm">IfShowCancelDialogWhenImageTransfer</a></li>
+                                <li class="property"><a href="Properties/prop%20IfSSL.htm">IfSSL</a></li>
+                                <li class="property"><a href="Properties/prop%20MaxUploadImageSize.htm">MaxUploadImageSize</a></li>
+                                <li class="event"><a href="Events/Event%20OnInternetTransferPercentage.htm">OnInternetTransferPercentage</a></li>
+                                <li class="method"><a href="Methods/method%20SetHTTPFormField.htm">SetHTTPFormField</a></li>
+								<li class="method"><a href="Methods/method%20SetUploadSegment.htm">SetUploadSegment</a></li>
+								<li class="method"><a class="why" title="Only used in the HTML5 edition." href="Methods/method%20SetHTTPHeader.htm">SetHTTPHeader</a></li>
+                            </ul>
+                            <!--<h3><a style="color: #FE8E14;" href="Programmer%20Guide/Version%20Comparison.htm">Version Comparison</a></h3>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!--
+            <div class="seperator"></div>
+            <div class="notsupported">
+                <h3>APIs yet to be added</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="32%">
+                                <ul class="toc">
+                                    <li class="property"><span class="why" title="Scheduled for future releases">AutoCropMethod</span></li>
+                                    <li class="property"><span class="why" title="Scheduled for future releases">IfThrowException</span></li>
+                                    <li class="property"><span class="why" title="Scheduled for future releases">VScrollBar</span></li>
+                                </ul>
+                            </td>
+                            <td width="32%"></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            -->
+
+
+
+
+            <div class="seperator"></div>
+            <div class="deprecated">
+                <h3>Deprecated APIs</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="32%">
+                                <ul class="toc">
+                                    <li class="property"><span class="why" title="Multiple Selection is always allowed in v10.1 and above">AllowMultiSelect</span></li>
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">AllowPluginAuthentication</span></li>
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">AsyncMode</span></li>
+                                    <!--<li class="property"><span class="why" title="Use Addon.Barcode.Read instead">BarcodeCount</span></li>-->
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">BorderStyle</span></li>
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">BrokerProcessType</span></li>
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">EnableInteractiveZoom</span></li>
+                                    <li class="property"><span class="why" title="This API will not be supported in future releases">HttpContentTypeFieldValue</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">HTTPPassword</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">HTTPUserName</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">IfModalUI</span></li>
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">IfScanInNewThread</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">IfShowPrintUI</span></li>
+                                    <li class="property"><span class="why" title="Use GetImageXResolution instead">ImageBitsPerPixel</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">ImageEditorIfEnableEnumerator</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">ImageEditorIfModal</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">ImageEditorIfReadonly</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">ImageEditorWindowTitle</span></li>
+                                    <li class="property"><span class="why" title="Use GetImageLength instead">ImageLength</span></li>
+                                    <li class="property"><span class="why" title="Use GetImageWidth instead">ImageWidth</span></li>
+                                    <li class="property"><span class="why" title="Use GetImageXResolution instead">ImageXResolution</span></li>
+                                    <li class="property"><span class="why" title="Use GetImageYResolution instead">ImageYResolution</span></li>
+                                    <li class="property"><span class="why" title="This API no longer works in Chrome&Firefox edition">MaxInternetTransferThreads</span></li>
+                                    <li class="property"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">ProxyServer</span></li>
+                                    <li class="property"><span class="why" title="Use GetSourceNameItems instead">SourceNameItems</span></li>
+                                    <li class="property"><span class="why" title="Use GetSourceNameItems instead">GetSourceNames</span></li>
+                                </ul>
+                            </td>
+                            <td width="40%">
+                                <ul class="toc" style="padding-left: 15px;">
+                                    <!--<li class="method"><span class="why" title="Use Addon.Barcode.Read instead">GetBarcodeInfo</span></li>
+                                    <li class="method"><span class="why" title="Use Addon.Barcode.Read instead">GetBarcodeText</span></li>-->
+                                    <li class="method"><span class="why" title="Use HTTPDownload instead">HTTPDownloadThroughPost</span></li>
+                                    <li class="method"><span class="why" title="Use HTTPUploadAllThroughPostAsMultiPageTIFF instead">HTTPUploadAllThroughPutAsMultiPageTIFF</span></li>
+                                    <li class="method"><span class="why" title="Use HTTPUploadAllThroughPostAsPDF instead">HTTPUploadAllThroughPutAsPDF</span></li>
+                                    <li class="method"><span class="why" title="Use HTTPUploadThroughPost instead">HTTPUploadThroughPut</span></li>
+									
+	                                <li class="method"><a href="Methods/method%20FTPUploadDirectly.htm">FTPUploadDirectly</a></li>
+	                                <li class="method"><a href="Methods/method%20HTTPUploadThroughPostDirectly.htm">HTTPUploadThroughPostDirectly</a></li>
+	
+                                    <li class="method"><span class="why" title="Use HTTPUploadThroughPostAsMultiPagePDF instead">HTTPUploadThroughPutAsMultiPagePDF</span></li>
+                                    <li class="method"><span class="why" title="Use HTTPUploadThroughPostAsMultiPageTIFF instead">HTTPUploadThroughPutAsMultiPageTIFF</span></li>
+                                    <li class="method"><span class="why" title="Use HTTPUploadThroughPostDirectly instead">HTTPUploadThroughPutDirectly</span></li>
+                                    <li class="method"><span class="why" title="Use HTTPUploadThroughPostEx instead">HTTPUploadThroughPutEx</span></li>
+                                    <li class="method"><span class="why" title="Use IsBlankImageExpress instead">IsBlankImage</span></li>
+                                    <li class="method"><span class="why" title="Use IsBlankImageExpress instead">IsBlankImageEx</span></li>
+                                    <li class="method"><span class="why" title="Use 20LoadImageFromBase64Binary instead">LoadImageFromBytes</span></li>
+                                    <li class="method"><span class="why" title="Use SaveSelectedImagesToBase64Binary instead">SaveSelectedImagesToBytes</span></li>
+                                    <li class="method"><span class="why" title="This API is no longer needed in Chrome&Firefox edition">SetCookie</span></li>
+                                    <li class="method"><span class="why" title="Use ShowImageEditor instead">ShowImageEditorEx</span></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="toc" style="padding-left: 55px;">
+                                    <li class="event"><span class="why" title="This API is no longer needed">OnAfterOperate</span></li>
+                                    <li class="event"><span class="why" title="This API is no longer needed">OnBeforeOperate</span></li>
+                                    <li class="event"><span class="why" title="This API is no longer needed">OnOperateStatus</span></li>
+                                    <li class="event"><span class="why" title="Use OnInternetTransferPercentage instead.">OnInternetTransferPercentageEx</span></li>
+                                    <li class="event"><span class="why" title="This API doesn't work as expected due to different levels of TWAIN support from device vendors.">OnTransferCancelled</span></li>
+                                    <li class="event"><span class="why" title="This API doesn't work as expected due to different levels of TWAIN support from device vendors.">OnTransferError</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clear"></div>
+            </div>
+            <div class="seperator"></div>
+            <div class="removed">
+                <h3 title="You will get 'undefined' if you try to call one of the following APIs">Removed APIs</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="32%">
+                                <ul class="toc">
+                                    <li class="property"><span class="why" title="This API has no effect">CapDescription</span></li>
+                                    <li class="property"><span class="why" title="Use GetCapItems or SetCapItems instead">CapItems </span></li>
+                                    <li class="property"><span class="why" title="Use GetCapItemsString or SetCapItemsString instead">CapItemsString</span></li>
+                                    <li class="property"><span class="why" title="This API only works in a desktop application and is thus removed from the Web Version">hDIB</span></li>
+                                    <li class="property"><span class="why" title="This API does NOT work due to different implementations of the TWAIN capability CAP_DEVICEONLINE by different vendors">IfDeviceOnline</span></li>
+                                    <li class="property"><span class="why" title="This API has no effect in the latest version and is thus removed">IfHookMessage</span></li>
+                                    <li class="property"><span class="why" title="Replaced by IfScanInNewThread and later by BrokerProcessType">IfScanInThread</span></li>
+                                    <li class="property"><span class="why" title="This API is internal and not allowed to be changed.">InternetReceiveTimeout</span></li>
+                                    <li class="property"><span class="why" title="This API is internal and not allowed to be changed.">InternetSendTimeout</span></li>
+                                    <li class="property"><span class="why" title="This API only works in a desktop application and is thus removed from the Web Version">Picture</span></li>
+                                    <li class="property"><span class="why" title="This API is replaced by GetSelectedImageIndex and SetSelectedImageIndex">SelectedImageIndex</span></li>
+                                </ul>
+                            </td>
+                            <td width="34%">
+                                <ul class="toc">
+                                    <li class="method"><span class="why" title="This API is no longer needed in v10.0 and above">BindSSLCert</span></li>
+                                    <li class="method"><span class="why" title="This API is no longer needed in v10.0 and above">BindSSLCertEx</span></li>
+                                    <li class="method"><span class="why" title="This API only works in a desktop application and is thus removed from the Web Version">GetDefaultImageLayout</span></li>
+                                    <li class="method"><span class="why" title="This API has no effect in the latest version and is thus removed">GetFileHash</span></li>
+                                    <li class="method"><span class="why" title="This API only works in a desktop application and is thus removed from the Web Version">GetHDIB</span></li>
+                                    <li class="method"><span class="why" title="This API only works in a desktop application and is thus removed from the Web Version">GetImageLayout</span></li>
+                                    <li class="method"><span class="why" title="This API only works in a desktop application and is thus removed from the Web Version">GetViewMode</span></li>
+                                    <li class="method"><span class="why" title="This API is no longer needed in v10.0 and above">HTTPDownloadStreamThroughPost</span></li>
+                                    <li class="method"><span class="why" title="This API is no longer needed in v10.0 and above">HTTPUploadStreamThroughPost</span></li>
+                                    <li class="method"><span class="why" title="This API is no longer needed in v10.0 and above">SetDefaultSource</span></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="toc">
+                                    <li class="event"><span class="why" title="This API is no longer needed">OnAfterOperateEx</span></li>
+                                    <li class="event"><span class="why" title="Use OnBitmapChanged instead">OnBitmapChangedEx</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clear"></div>
+            </div>
+            <div class="seperator"></div>
+            <div class="addons">                
+              <!-- <h3><a class="externallink" href="Addons.htm">Dynamic Web TWAIN Add-ons APIs</a></h3>-->
+               
+                <a style="display: inline-block; heihgt: 1px;" id="002"></a>
+                <h1 style="text-align: center;">Dynamic Web TWAIN Add-ons APIs</h1>
+                <h3 style="text-align: right; margin: 20PX 100px -20PX 0;"><a class="externallink" href="#001">See Core SDK APIs</a></h3>
+                <!--<div class="seperator"></div>-->
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="49%">
+                                <h2>PDF Rasterizer</h2>
+                                <ul class="toc">
+                                    <li class="method"><a href="Methods/method%20Addon.PDF.Download.htm">Addon.PDF.Download</a></li>
+									<li class="method"><a href="Methods/method%20Addon.PDF.IsModuleInstalled.htm">Addon.PDF.IsModuleInstalled</a></li>
+                                    <li class="method"><a href="Methods/method%20Addon.PDF.SetResolution.htm">Addon.PDF.SetResolution</a></li>
+                                    <li class="method"><a href="Methods/method%20Addon.PDF.SetPassword.htm">Addon.PDF.SetPassword</a></li>
+                                    <li class="method"><a href="Methods/method%20Addon.PDF.SetConvertMode.htm">Addon.PDF.SetConvertMode</a></li>
+                                    <li class="method"><a href="Methods/method%20Addon.PDF.IsTextBasedPDF.htm">Addon.PDF.IsTextBasedPDF</a></li>
+                                </ul>
+                                <div class="deprecated">
+                                    <h3>Deprecated APIs</h3>
+                                    <ul class="toc">
+                                        <li class="method"><a href="Methods/method%20Addon.PDF.ConvertToImage.htm"><span class="why" style="margin-left: 0;" title="The feature will be initiated and set in JS files since version 11.2">Addon.PDF.ConvertToImage</span></a></li>
+                                    </ul>
+                                </div><!--
+                                <h2>Barcode</h2>
+                                <ul class="toc">
+                                    <li class="method"><a href="Methods/method%20Addon.Barcode.Download.htm">Addon.Barcode.Download</a></li>
+                                    <li class="method"><a href="Methods/method%20Addon.Barcode.Read.htm">Addon.Barcode.Read</a></li>
+                                    <li class="method"><a href="Methods/method%20Addon.Barcode.ReadRect.htm">Addon.Barcode.ReadRect</a></li>
+
+                                </ul>
+                                <div class="removed">
+                                    <h3 title="You will get 'undefined' if you try to call one of the following APIs">Removed APIs</h3>
+                                    <ul class="toc" style="color:#aaa;">
+                                        <li class="method"><span class="why" title="This API is no longer needed in v11.0 and above">Addon.Barcode.GetLocalVersion</span></li>
+                                    </ul>
+                                </div>-->
+                            </td>
+                            <td width="49%">
+								<h2>OCRPro</h2>
+<ul>
+	<!--<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6132">Addon.OCRPro.Download</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6122">Addon.OCRPro.Recognize</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6138">Addon.OCRPro.RecognizeFile</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6135">Addon.OCRPro.RecognizeRect</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6140">Addon.OCRPro.RecognizeSelectedImages</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6126">Addon.OCRPro.Settings</a></li>-->
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6143">OCRPro.ServerSide.Request</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6146">OCRPro.ServerSide.Response</a></li>
+	<li class="method"><a href="http://developer.dynamsoft.com/?page_id=6129">OCRResult</a></li>
+</ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

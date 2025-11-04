@@ -1,0 +1,82 @@
+﻿<html>
+<head>
+    <title>Method ShowFileDialog - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20ShowFileDialog.htm'>ShowFileDialog</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>ShowFileDialog()</h1>
+        <h3>Description</h3>
+        <p>Show the system's save-file dialog or open-file dialog.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                ShowFileDialog(bSave, filter, filterIndex, defaultExtension, initialDir, allowMultiSelect, overwritePrompt, flags);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">bool</code> <code>bsave</code> : true -- show save-file dialog, false -- show open-file dialog.<br />
+            <code class="type">&lt;string&gt;</code> <code>filter</code> : <br />
+            the filter name specifies the filter pattern (for example, &quot;JPG | *.jpg&quot;).
+            To specify multiple filter patterns, use a
+            semicolon to separate the patterns (for example, &quot;JPG, PNG and TIF | *.jpg;*.png;*.tif&quot;  or &quot;JPG, PNG , TIF&quot; for macOS). A pattern
+            string can be a combination of valid file extensions with asterisk (*). Do not include spaces in the pattern string. To show all files,
+            use the string &quot;All Files | *.*&quot;.
+            <br />
+            <code class="type">&lt;int&gt;</code> <code>filterIndex</code> : determines the index for the filter string we set, in other words, where the filter string
+            should appear in the dialog's filters drop-down box. By default, it's 0 and you don't need to change it. This parameter doesn't work on macOS.<br />
+            <code class="type">&lt;string&gt;</code> <code>defaultExtension</code> : define the default extension which will be appended to the file name.
+            Only useful when you try to save an image or images.
+            If this member is NULL and the user fails to type an extension, no extension is appended.<br />
+            <code class="type">&lt;string&gt;</code> <code>initialDir</code> : the initial directory. The algorithm for selecting the initial directory varies on different platforms.<br />
+            <code class="type">bool</code> <code>allowMultiSelect</code> : true -- allow multiple selection, false -- only allow single file selection.<br />
+            <code class="type">bool</code> <code>overwritePrompt</code> : true -- if a file already exists with the same name, user needs to confirm before the existing file is overwritten,
+            false -- if a file already exists with the same name, it will be overwritten without further user confirmation.<br />
+            <code class="type">&lt;int&gt;</code> <code>flags</code> : if this parameter equals 0, the program will be initiated with the custom settings. Otherwise it will be initiated with default flags,
+            which means <code>allowMultiSelect</code> and <code>overwritePrompt</code> will not work.<br />
+        </p>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>
+            When 'false' is, check <a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a> or
+            <a href="../Properties/prop%20ErrorString.htm">ErrorString</a>
+            for error information.
+        </p>
+        <h3>Remarks</h3>
+        <p>For Mac Edition, the method performs differently.</p>
+        <p>
+            No matter it succeeded or failed, this method will trigger <code><a href="../Events/Event%20OnGetFilePath.htm">OnGetFilePath</a></code>
+            event. If more than one file are selected, the event will also be called multiple times.
+        </p>
+
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Events/Event%20OnGetFilePath.htm">OnGetFilePath</a></code>
+        </p>
+        <h3>Example</h3>
+        <code>
+            <pre>
+
+DWObject.RegisterEvent('OnGetFilePath', function(bSave, filesCount, index, path, filename){
+    alert(" fileCount: " +  filesCount + " index: " +  index + " path: " +  path + "\\" +  filename);
+});
+<span class="comment">//In macOS</span>
+var result = DWObject.ShowFileDialog(false, "TIF,TIFF,JPG,JPEF,PNG,PDF", 0, "", "", true, false, 0);
+<span class="comment">//In Windows</span>
+var result = DWObject.ShowFileDialog(false, "TIF,TIFF,JPG,JPEF,PNG,PDF", 0, "", "", true, true, 0)
+alert(result);
+</pre>
+        </code>
+    </div>
+</body>
+</html>

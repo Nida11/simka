@@ -1,0 +1,55 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 5 seconds"
+ExpiresByType text/css "access plus 1 seconds"
+ExpiresByType text/html "access plus 1 seconds"
+ExpiresByType text/plain "access plus 1 seconds"
+ExpiresByType text/x-component "access plus 1 seconds"
+ExpiresByType text/javascript "access plus 1 seconds"
+ExpiresByType text/x-javascript "access plus 1 seconds"
+ExpiresByType application/javascript "access plus 1 seconds"
+ExpiresByType application/x-javascript "access plus 1 seconds"
+ExpiresByType image/x-icon "access plus 1 seconds"
+ExpiresByType application/json "access plus 1 seconds"
+ExpiresByType application/ld+json "access plus 1 seconds"
+ExpiresByType application/xml "access plus 1 seconds"
+ExpiresByType text/xml "access plus 1 seconds"
+ExpiresByType application/x-web-app-manifest+json "access plus 1 seconds"
+ExpiresByType text/cache-manifest "access plus 1 seconds"
+</IfModule>
+###Start Kloxo PHP config Area
+### begin content - please not remove this line
+#<IfModule mod_rewrite.c>
+#	## MR -- authentically for letsencrypt for webroot-based
+#	RewriteRule /\.|^\.(?!well-known/) - [F]
+#</FilesMatch>
+### MR -- using php version different with default php
+### 1. Using suphp
+### - Copy between '#<FilesMatch \.php$>' to '#</FilesMatch>' and 
+###   then remove '#' from '#<FilesMatch', '#</FilesMatch>' and one of '#SetHandler'
+#<FilesMatch \.php$>
+	#SetHandler x-httpd-php
+	#SetHandler x-httpd-php54
+	#SetHandler x-httpd-php55
+	#SetHandler x-httpd-php56
+#</FilesMatch>
+### OR
+### 2. Using fcgid
+### - Copy from '#Options' to '#FCGIWrapper' and 
+###   then remove '#' for one of '#FCGIWrapper'
+#Options +ExecCGI
+#<FilesMatch \.php$>
+#	SetHandler fcgid-script
+#</FilesMatch>
+#FCGIWrapper /usr/bin/php-cgi .php
+#FCGIWrapper /usr/bin/php54m-cgi .php
+#FCGIWrapper /usr/bin/php55m-cgi .php
+#FCGIWrapper /usr/bin/php56m-cgi .php
+### end content - please not remove this line
+###End Kloxo PHP config Area

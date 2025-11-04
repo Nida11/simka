@@ -1,0 +1,149 @@
+﻿<html>
+<head>
+    <title>Method Addon.Webcam.GetCameraControlPropertyMoreSetting - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+		<a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href='method%20Addon.Webcam.GetCameraControlPropertyMoreSetting.htm'>Addon.Webcam.GetCameraControlPropertyMoreSetting</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.Webcam.GetCameraControlPropertyMoreSetting()</h1>
+        <h3>Description</h3>
+        <p>Returns the range and default values of a specified webcam property.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.Addon.Webcam.GetCameraControlPropertyMoreSetting(iProperty);</p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">&lt;int&gt;</code> <code>iProperty</code>: Specifies the property to query, allowed values are:
+        </p>
+		<table>
+				<tr>
+					<th>Allowed Values</th>
+					<th>EnumDWT_CameraControlProperty enumeration</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>0</td>
+					<td>EnumDWT_CameraControlProperty.CCP_PAN</td>
+					<td>Specifies the camera's pan setting, in degrees. Values range from –180 to +180, with the default set to zero. Positive values are clockwise from the origin (the camera rotates clockwise when viewed from above), and negative values are counterclockwise from the origin.</td>
+				</tr>
+				<tr>
+					<td>1</td><td>EnumDWT_CameraControlProperty.CCP_TILT </td>
+					
+					<td>Specifies the camera's tilt setting, in degrees. Values range from –180 to +180, with the default set to zero. Positive values point the imaging plane up, and negative values point the imaging plane down.</td>
+				</tr>
+				<tr>
+					<td>2</td><td>EnumDWT_CameraControlProperty.CCP_ROLL</td>
+					
+					<td>Specifies the camera's roll setting, in degrees. Values range from –180 to +180, with the default set to zero. Positive values cause a clockwise rotation of the camera along the image-viewing axis, and negative values cause a counterclockwise rotation of the camera.</td>
+				</tr>
+				<tr>
+					<td>3</td><td>EnumDWT_CameraControlProperty.CCP_ZOOM</td>
+					
+					<td>Specifies the camera's zoom setting, in millimeters. Values range from 10 to 600, and the default is specific to the device.</td>
+				</tr>
+				<tr>
+					<td>4</td><td>EnumDWT_CameraControlProperty.CCP_EXPOSURE</td>
+					
+					<td>Specifies the exposure setting, in log base 2 seconds. In other words, for values less than zero, the exposure time is 1/2^n seconds, and for values zero or above, the exposure time is 2^n seconds. For example:<br />
+					Value	Seconds<br />
+					&nbsp;&nbsp;-3	&nbsp;&nbsp;&nbsp;  1/8<br /> 
+					&nbsp;&nbsp;-2	&nbsp;&nbsp;&nbsp;  1/4<br />
+					&nbsp;&nbsp;-1  &nbsp;&nbsp;&nbsp;  1/2<br />
+					&nbsp;&nbsp;0	&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  1<br />
+					&nbsp;&nbsp;1&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;   2<br />
+					&nbsp;&nbsp;2 &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;	4<br />
+				</td>
+				</tr>
+				<tr>
+					<td>5</td><td>EnumDWT_CameraControlProperty.CCP_IRIS</td>
+					
+					<td>Specifies the camera's iris setting, in units of f<span style="vertical-align:sub; font-size:smaller">stop</span>* 10.</td>
+				</tr>
+				<tr>
+					<td>6</td><td>EnumDWT_CameraControlProperty.CCP_FOCUS</td>
+					
+					<td>Specifies the camera's focus setting, as the distance to the optimally focused target, in millimeters. The range and default value are specific to the device.</td>
+				</tr>
+			</table>
+		<h3>Return value</h3>
+		<p>
+            An object of the type <code class="type">&lt;CameraControlMoreSetting&gt;</code> is returned. Methods available in the object are
+            <table>
+                <tr>
+                    <th style="width:70px">Data Type</th>
+                    <th>Method Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code class="type">&lt;long&gt;</code></td>
+                    <td>GetMinValue()</td>
+                    <td>Returns the minimum value of the property.</td>
+                </tr>
+                <tr>
+                    <td><code class="type">&lt;long&gt;</code></td>
+                    <td>GetMaxValue()</td>
+                    <td>Returns the maximum value of the property.</td>
+                </tr>
+                <tr>
+                    <td><code class="type">&lt;long&gt;</code></td>
+                    <td>GetSteppingDelta()</td>
+                    <td>Returns the step size for the property. The step size is the smallest increment by which the property can change.</td>
+                </tr>
+                <tr>
+                    <td><code class="type">&lt;long&gt;</code></td>
+                    <td>GetDefaultValue()</td>
+                    <td>Returns the default value of the property.</td>
+                </tr>
+                <tr>
+                    <td><code class="type">&lt;bool&gt;</code></td>
+                    <td>GetIfAuto()</td>
+                    <td>Returns a value that indicates whether the setting is controlled manually or automatically.</td>
+                </tr>
+            </table>
+        </p>
+		<h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.Addon.Webcam.SelectSource(document.getElementById("source").options[document.getElementById("source").
+selectedIndex].text);
+var _CameraControlMoreSetting = DWObject.Addon.Webcam.GetCameraControlPropertyMoreSetting(EnumDWT_CameraControlProperty.
+CCP_PAN); 
+
+var _GetMinValue = _CameraControlMoreSetting.GetMinValue();
+var _GetMaxValue = _CameraControlMoreSetting.GetMaxValue();
+var _GetSteppingDelta = _CameraControlMoreSetting.GetSteppingDelta();
+var _GetDefaultValue = _CameraControlMoreSetting.GetDefaultValue();
+var _GetIfAuto = _CameraControlMoreSetting.GetIfAuto();
+
+alert("MinValue: " + _GetMinValue + "; MaxValue: " + _GetMaxValue + "; SteppingDelta: " + _GetSteppingDelta + 
+"; DefaultValue: " + _GetDefaultValue + "; IfAuto: " + _GetIfAuto);
+            </pre>
+        </code>
+
+        <h3>See also</h3>
+		<p>
+            <code><a href="method%20Addon.Webcam.GetCameraControlPropertySetting.htm">Addon.Webcam.GetCameraControlPropertySetting</a></code>
+        </p>
+		<p>
+            <code><a href="method%20Addon.Webcam.SetCameraControlPropertySetting.htm">Addon.Webcam.SetCameraControlPropertySetting</a></code>
+        </p>
+		<p>
+            <code><a href="method%20Addon.Webcam.GetVideoPropertySetting.htm">Addon.Webcam.GetVideoPropertySetting</a></code>
+        </p>
+        <p>
+            <code><a href="method%20Addon.Webcam.GetVideoPropertyMoreSetting.htm">Addon.Webcam.GetVideoPropertyMoreSetting</a></code>
+        </p>
+		<p>
+            <code><a href="method%20Addon.Webcam.SetVideoPropertySetting.htm">Addon.Webcam.SetVideoPropertySetting</a></code>
+        </p>
+    </div>
+</body>
+</html>

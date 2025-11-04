@@ -1,0 +1,59 @@
+﻿<html>
+<head>
+    <title>Method Addon.Webcam.SetMediaType - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href=''>Addon.Webcam.SetMediaType</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.Webcam.SetMediaType()</h1>
+        <h3>Description</h3>
+        <p>Sets the media type of the current webcam.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                 .Addon.Webcam.SetMediaType(string mediaType);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;string&gt;</code> <code>mediaType</code>: Specifies the media type to use.<br />
+
+
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+
+       
+       <h3>Remarks</h3>
+        <p class="notice">The method should be called after <code><a href="method%20Addon.Webcam.SelectSource.htm">Addon.Webcam.SelectSource</a></code>. If there is only one data source available, it will be selected automatically.</p> 
+        <p>
+		More info about the media types can be found at <a target='_blank' href="https://msdn.microsoft.com/en-us/subscriptions/ee495731.aspx">DirectShow Media Types</a>.
+		</p>
+    
+
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+if (DWObject)
+  {
+   DWObject.Addon.Webcam.SetMediaType("MJPG");
+  }
+            </pre>
+        </code>
+
+        <h3>See Also</h3>
+        <p>
+          <code><a href="method%20Addon.Webcam.GetMediaType.htm">Addon.Webcam.GetMediaType</a></code>
+        </p>     
+    </div>
+</body>
+</html>

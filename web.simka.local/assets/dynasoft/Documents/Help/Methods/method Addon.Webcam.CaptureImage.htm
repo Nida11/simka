@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+    <title>Method CaptureImage - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href=''>Addon.Webcam.CaptureImage</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.Webcam.CaptureImage()</h1>
+        <h3>Description</h3>
+        <p>Captures an image from the webcam. This is an asynchronous method.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .Addon.Webcam.CaptureImage(bool bIfShowUI, OnCaptureStart, OnCaptureSuccess, OnCaptureError, OnCaptureEnd);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;bool&gt;</code> <code>bIfShowUI</code>: If it is <code class="type">true</code>, the webcam UI will show where presettings can be made before capturing; otherwise, the UI won't show and the capturing starts right away.<br />
+         <p>
+            <code class="type">&lt;function&gt;</code> <code>OnCaptureStart</code>: Invoked when the capturing begins.<br />
+            <code class="type">&lt;function&gt;</code> <code>OnCaptureSuccess</code>: Invoked when one image is successfully captured.<br />
+            <code class="type">&lt;function&gt;</code> <code>OnCaptureError(errorCode, errorString)</code>:Invoked when the operation fails. You can check why it failed with the returned errorCode or errorString.<br />
+            <code class="type">&lt;function&gt;</code>  <code>OnCaptureEnd</code>: Invoked when capturing ends.
+        </p>
+		
+        <h3>Return value</h3>
+        <p><code class="type">void</code></p>
+
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+function CaptureImage() {
+    if (DWObject) {
+      DWObject.Addon.Webcam.SelectSource(document.getElementById("source").options[
+      document.getElementById("source").selectedIndex].text);
+
+        var showUI = document.getElementById("ShowUI").checked;
+
+        var OnCaptureStart = function () {}
+
+        var OnCaptureSuccess = function () {}
+
+        var OnCaptureError = function (error, errorstr) {alert(errorstr); }
+
+        var OnCaptureEnd = function () {}
+
+      DWObject.Addon.Webcam.CaptureImage(showUI, OnCaptureStart, OnCaptureSuccess, OnCaptureError, OnCaptureEnd);
+    }
+} </pre>
+        </code>
+
+           <h3>See Also</h3>
+            <p>
+           <code><a href="method%20Addon.Webcam.CloseSource.htm">Addon.Webcam.CloseSource()</a></code>
+           </p> 
+    </div>
+</body>
+</html>

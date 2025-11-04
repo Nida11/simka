@@ -1,0 +1,92 @@
+﻿<html>
+<head>
+    <title>Method Addon.PDF.ConvertToImage - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href='method%20Addon.PDF.ConvertToImage.htm'>Addon.PDF.ConvertToImage</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.PDF.ConvertToImage()</h1>
+        <h3>Description</h3>
+        <p>Converts a local PDF file into an image with a specified resolution.</p>
+
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.Addon.PDF.ConvertToImage(fileName, resolution, [optionalAsyncSuccessFunc, optionalAsyncFailureFunc]);</p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">&lt;string&gt;</code> <code>fileName</code>: the name of the PDF to be converted. It should be the absolute path of the PDF on the local disk.<br />
+            <code class="type">&lt;float&gt;</code> <code>resolution</code>: specifies the output image resolution.
+        </p>
+        <p class="specialnotice">The following two parameters are optional. If either one exists or both exist, the method is asynchronous, otherwise it's synchronous.</p>
+        <p>
+            <code class="type">&lt;OnSuccess function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncSuccessFunc</code>: callback function triggered when the file is saved successfully. <br />
+            <code class="type">&lt;OnFailure function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncFailureFunc</code>: callback function triggered when the file failed to be saved.
+        </p>
+        <p class="specialnotice">
+            Please refer to the function prototype <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnSuccess"><code class="type">OnSuccess</code></a> or <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnFailure"><code class="type">OnFailure</code></a>.
+        </p>
+        <h3>Return value</h3>
+        <p class="notice">Only valid when used synchronously.</p>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Methods/method%20Addon.PDF.Download.htm">Addon.PDF.Download</a></code><br />
+            <code><a href="../Events/event%20OnGetFilePath.htm">OnGetFilePath</a></code><br />
+            <code><a href="../Methods/method%20ShowFileDialog.htm">ShowFileDialog</a></code><br />
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+//Callback functions for async APIs
+function OnSuccess() {
+    console.log('successful');
+}
+
+function OnSuccess_2() {
+    console.log('successful');
+    DWObject.ShowFileDialog(false, "PDF (*.pdf)|*.pdf", 0, "", "", true, true, 0);
+}
+
+function OnFailure(errorCode, errorString) {
+    alert(errorString);
+}
+
+function LoadPDF() {
+    if (DWObject) {
+        if (location.hostname != "") {
+            var CurrentPathName = unescape(location.pathname); // get current PathName in plain ASCII	
+            var CurrentPath = CurrentPathName.substring(0, CurrentPathName.lastIndexOf("/") + 1);
+            var strPDFfilepath = CurrentPath + "Resources/addon/DynamicPDF.zip";
+            var strHostIP = location.hostname;
+            var port = location.port == "" ? 80 : location.port;
+            DWObject.HTTPPort = port;
+            var remoteFile = "http://" + strHostIP + ":" + port + strPDFfilepath;
+
+            DWObject.Addon.PDF.Download(remoteFile, OnSuccess_2, OnFailure);
+        }
+
+    }
+}
+
+function Dynamsoft_OnGetFilePath(bSave, count, index, path, name) {
+    fileName = path + "\\" + name;
+    DWObject.Addon.PDF.ConvertToImage(fileName, 200, OnSuccess, OnFailure);
+}
+</pre>
+        </code>
+    </div>
+</body>
+</html>

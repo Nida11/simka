@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+    <title>Method SetCustomDSDataEx - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SetCustomDSDataEx.htm'>SetCustomDSDataEx</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SetCustomDSDataEx()</h1>
+        <h3>Description</h3>
+        <p>Sets custom DS data to be used for scanning, the input string is base64 encoded. Custom DS data means a specific scanning profile.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .SetCustomDSDataEx(string strBase64);
+            </p>
+        </div>
+
+        <h3>Parameters</h3>
+        <code class="type">&lt;string&gt;</code> <code>strBase64</code><br /><br />
+        The input string which is base64 encoded.
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            When <code>false</code> is returned, check <a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a> or
+            <a href="../Properties/prop%20ErrorString.htm">ErrorString</a>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="method%20GetCustomDSDataEx.htm">GetCustomDSDataEx()</a></code>
+        </p>
+    </div>
+</body>
+</html>

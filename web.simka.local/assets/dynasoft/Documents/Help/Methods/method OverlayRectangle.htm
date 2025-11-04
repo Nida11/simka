@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+    <title>Method OverlayRectangle - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20OverlayRectangle.htm'>OverlayRectangle</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>OverlayRectangle()</h1>
+        <h3>Description</h3>
+        <p>Decorates an image specified by index. The decoration is in the form of rectangles filled with transparent color.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .OverlayRectangle(sImageIndex, left, top, right, bottom, color, fOpacity);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;short&gt;</code> <code>sImageIndex</code>: specifies the index of image in buffer. The index is 0-based.<br />
+        <code class="type">&lt;int&gt;</code> <code>left</code>: specifies the x-coordinate of the upper-left corner of the rectangle.<br />
+        <code class="type">&lt;int&gt;</code> <code>top</code>: specifies the y-coordinate of the upper-left corner of the rectangle.<br />
+        <code class="type">&lt;int&gt;</code> <code>right</code>: specifies the x-coordinate of the lower-right corner of the rectangle.<br />
+        <code class="type">&lt;int&gt;</code> <code>bottom</code>: specifies the y-coordinate of the lower-right corner of the rectangle.<br />
+        <code class="type">&lt;int&gt;</code> <code>color</code>: specifies the color. It is a value specifying the 24-bit RGB value.<br />
+        <p>
+            Default is white (0xffffff). The byte-ordering of the 24-bit RGB value is BBGGRR.  BB represents blue, GG represents green and RR
+            represents red.
+        </p>
+        <code class="type">&lt;float&gt;</code> <code>fOpacity</code>: specifies the opacity of the color. 1.0 is 100% opaque and 0.0 is totally transparent.
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.OverlayRectangle(0, 50, 50, 300, 300, 0xff0000, 0.5);
+</pre>
+        </code>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+    <title>Method SetImageLayout - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SetImageLayout.htm'>SetImageLayout</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SetImageLayout()</h1>
+        <h3>Description</h3>
+        <p>
+            Sets the left, top, right, and bottom sides of the image layout rectangle for
+            the current Data Source. In other words, sets which area should be scanned.
+        </p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .SetImageLayout(left, top, right, bottom);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+        <code class="type">&lt;float&gt;</code> <code>left</code>: specifies the left side of the image layout rectangle.</br>
+        	<code class="type">&lt;float&gt;</code> <code>top</code>: specifies the top side of the image layout rectangle.</br>
+        	<code class="type">&lt;float&gt;</code> <code>right</code>: specifies the right side of the image layout rectangle.</br>
+        	<code class="type">&lt;float&gt;</code> <code>bottom</code>: specifies the bottom side of the image layout rectangle.
+        </p>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>
+            When <code>false</code> is returned, check <a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a> or
+            <a href="../Properties/prop%20ErrorString.htm">ErrorString</a>
+            for error information.
+        </p>
+        <h3>Remarks</h3>
+        <p>
+            The image layout rectangle defines what portion of the Data Source's scanning
+            area is acquired.
+        </p>
+        <p>
+            You should set <a href="../Properties/prop%20Unit.htm">Unit</a> before using this method.
+        </p>
+		<p class="notice">
+		This method uses Capability Negotiation underneath, thus is device-dependent. If a device doesn't support the customization of the scan area, this method might not work correctly.
+		</p>        
+        <h3>Example</h3>
+        <code class="language-javascript"><pre>DWObject.SelectSource();
+DWObject.OpenSource();
+DWObject.IfShowUI = false;
+DWObject.Unit=EnumDWT_UnitType.TWUN_PIXELS;
+DWObject.SetImageLayout(50, 50, 100, 100);
+DWObject.AcquireImage();</pre></code>
+
+				<h3>See also</h3>
+        <p>        	
+          <code><a href="../Properties/prop%20Unit.htm">Unit</a></code></br>
+          <code><a href="../Properties/prop%20PageSize.htm">PageSize</a></code></br>
+          <code><a href="method%20ResetImageLayout.htm">ResetImageLayout()</a></code>
+        </p>
+    </div>
+</body>
+</html>

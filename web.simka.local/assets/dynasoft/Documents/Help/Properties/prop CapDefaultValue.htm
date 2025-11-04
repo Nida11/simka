@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+    <title>Property CapDefaultValue - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20CapDefaultValue.htm'>CapDefaultValue</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>CapDefaultValue</h1>
+        <h3>Description</h3>
+        <p>
+            Returns the default value of a capability.<br />
+        </p>
+        <h3>Data type</h3>
+        <code class="type">&lt;double&gt;</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.CapDefaultValue;</p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            Check this property after calling <code><a href="../Methods/method%20CapGet.htm">CapGet()</a></code>.
+        </p>
+        <p class="notice">
+            Valid only when the capability has the
+            <code><a href="prop%20CapType.htm">CapType</a></code> of TWON_RANGE (6).
+        </p>
+        <p>Default value reflects the Data Source's power-on value. It can NOT be set.</p>
+        <p>When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or<code><a href="prop%20ErrorString.htm">ErrorString</a></code>for error information.</p>
+        <h3>See also</h3>
+        <p>
+            <a target="_blank" href="http://www.dynamsoft.com/download/Support/Dynamic%20Web%20TWAIN%20Capability%20Negotiation.pdf">How to Negotiate Capability with Different Capability Container Types</a><br />
+            <code><a href="../Methods/method%20OpenSource.htm">OpenSource()</a></code><br />
+            <code><a href="../Methods/method%20CapGet.htm">CapGet()</a></code><br />
+            <code><a href="../Methods/method%20CapReset.htm">CapReset()</a></code><br />
+            <code><a href="../Methods/method%20CapSet.htm">CapSet()</a></code><br />
+            <code><a href="prop%20CapType.htm">CapType</a></code>
+        </p>
+    </div>
+</body>
+</html>

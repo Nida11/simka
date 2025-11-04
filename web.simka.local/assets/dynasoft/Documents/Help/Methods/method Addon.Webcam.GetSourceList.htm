@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+    <title>Method Addon.Webcam.GetSourceList - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+		<a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href='method%20Addon.Webcam.GetSourceList.htm'>Addon.Webcam.GetSourceList</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.Webcam.GetSourceList()</h1>
+        <h3>Description</h3>
+        <p>Gets a list of available webcam Data Sources.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.Addon.Webcam.GetSourceList();</p>
+        </div>
+        <h3>Parameters</h3>
+        <code>None</code>
+		<h3>Return value</h3>
+		<p>
+            <code class="type">&lt;string[]&gt;</code> An array of strings containing all webcam names e.g. ["HD WebCam", "HP webcam 123", "USB video driver"]
+        </p>
+		<h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+    var arySource = DWObject.Addon.Webcam.GetSourceList();
+    for (var i = 0; i < arySource.length; i++){
+        document.getElementById("source").options.add(new Option(arySource[i])); 
+        // Get Webcam Source names and put them in a drop-down box
+    }
+            </pre>
+        </code>
+
+        <h3>See also</h3>
+        <p>
+            <code><a href="method%20Addon.Webcam.SelectSource.htm">Addon.Webcam.SelectSource</a></code>
+        </p>
+    </div>
+</body>
+</html>

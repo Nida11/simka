@@ -1,0 +1,819 @@
+.MsoNormal {
+    font-size: 9.5pt;
+    font-family: NSimSun;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+}
+
+html {
+
+}
+
+body {
+    background: #fff;
+    font-family: Arial,sans-serif;
+    color: #444;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#body {
+    _width: 960px;
+    _height: 1200px;
+    _overflow-y: scroll;
+}
+
+span {
+    max-width: 800px;
+}
+
+.class {
+	background: url(imgs/class.jpeg) no-repeat;
+}
+    .class a,
+    .class span {
+        margin-left: 20px;
+    }
+	
+.method {
+    background: url(imgs/publicMethod.gif) no-repeat;
+}
+    .method a,
+    .method span {
+        margin-left: 20px;
+    }
+
+.property {
+    background: url(imgs/publicProperty.gif) no-repeat;
+}
+
+    .property a,
+    .property span {
+        margin-left: 20px;
+    }
+
+.event {
+    background: url(imgs/publicEvent.gif) no-repeat;
+}
+
+    .event a,
+    .event span {
+        margin-left: 20px;
+    }
+
+.removed table ul {
+    color: #aaa;
+}
+
+.deprecated h3 {
+    color: grey;
+}
+
+.why {
+    padding-right: 20px;
+    background: url(imgs/why.png) no-repeat right;
+}
+
+.newfeature {
+    padding-right: 30px;
+    background: url(imgs/new.gif) no-repeat right;
+}
+
+.removed h3 {
+    color: #aab7bc;
+}
+
+.externallink {
+    text-decoration: underline;
+}
+
+.seperator {
+    margin-top: 50px;
+    height: 3px;
+    width: 100%;
+    background-color: #FE8E14;
+    overflow: hidden;
+}
+/* colors
+--------------------------------------------------------------------------------------------------*/
+
+
+
+body,
+#head a {
+    color: #444;
+}
+
+.content {
+    width: 900px;
+    margin: 0 auto;
+    _margin: 0 40px;
+    _margin-top: 20px;
+    _height: 1100px;
+    _overflow-y: scroll;
+}
+
+    .content a {
+        color: #06a2fc;
+    }
+
+a,
+#docs-index-content li a:hover {
+    color: #FE8E14; /*dynamsoft color*/
+}
+
+#banner {
+    background: #FE8E14;
+}
+
+    #banner,
+    #banner a { /* override */
+        color: #fff;
+    }
+
+#banner {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+}
+
+.apiIndex {
+    padding-top: 30px;
+    color: black;
+    width: 900px;
+    height: 20px;
+    margin: 0 auto;
+    _margin: 0 40px;
+}
+
+    .apiIndex a {
+        color: grey;
+    }
+
+        .apiIndex a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+#banner .docs-versions li.selected a {
+    border-color: #fff;
+}
+
+#banner .docs-versions li.old.selected a {
+    color: rgb(255, 228, 138);
+    border-color: rgb(255, 228, 138);
+}
+
+pre,
+code {
+    background: #f2f2f2;
+    border-color: #ddd;
+}
+
+.italic {
+    font-style: italic;
+}
+
+#foot {
+    background: none; /* override */
+    color: #aab7bc;
+}
+
+    #foot a {
+        color: #6dd2f4;
+    }
+
+
+/* text
+--------------------------------------------------------------------------------------------------*/
+
+
+
+a {
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.5;
+    margin: 1.1em 0;
+    width: 800px;
+}
+
+#banner p a,
+#body a:hover,
+#foot a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, b, strong, th {
+    font-weight: 400;
+    color: #FE8E14;
+}
+
+h1 {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+code,
+.spec {
+    font-family: Monaco,Consolas,"Lucida Console",monospace;
+    font-size: .8em;
+}
+
+    .spec code {
+        font-size: 1em; /* don't compound */
+    }
+
+
+/* normalization
+--------------------------------------------------------------------------------------------------*/
+
+ul, ol {
+    margin: 1.5em 0 1.5em 3em;
+    padding: 0;
+    max-width: 800px;
+}
+
+li {
+    margin: 1em 0;
+}
+
+dl {
+    margin: 2em 0 2em 2em;
+    padding: 0;
+}
+
+dt {
+    margin: 1.5em 0 0;
+    padding: 0;
+}
+
+dd {
+    margin: 1em 0 1em 2em;
+}
+
+
+h2, h3, h4, h5 {
+    margin: 1.25em 0 1.25em;
+}
+
+    h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child {
+        margin-top: 1.25em;
+    }
+
+.content table {
+    font-size: smaller;
+}
+
+.content td,
+.content th {
+}
+
+pre,
+code.block {
+    display: block;
+    margin: 1.5em 0;
+    padding: .5em;
+    border-style: solid;
+    border-width: 1px;
+    line-height: 1.5;
+}
+
+code {
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 0;
+}
+
+pre code {
+    background: none;
+    border: 0;
+}
+
+
+/* head
+--------------------------------------------------------------------------------------------------*/
+
+#head > div {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+#logo { /* an <img> */
+    vertical-align: middle;
+    border: 0; /* because it's in a link */
+}
+
+#head h1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 4px;
+    font-size: 36px;
+}
+
+    #head h1 span {
+        margin-right: 2px;
+        font-weight: 100;
+    }
+
+/* banner
+--------------------------------------------------------------------------------------------------*/
+
+#banner > div {
+    margin-top: 29px;
+    margin-bottom: 29px;
+}
+
+#banner h2 {
+    font-size: 26px;
+    margin: .8em 0;
+}
+
+
+/* body
+--------------------------------------------------------------------------------------------------*/
+
+/*#body > div {
+    margin-top: 29px;
+    margin-bottom: 49px;
+}*/
+
+
+/* footer
+--------------------------------------------------------------------------------------------------*/
+
+#foot {
+    font-size: 14px;
+}
+
+    #foot > div {
+        margin-top: 29px;
+        margin-bottom: 29px;
+    }
+
+    #foot .misc-links {
+        list-style: none;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+        #foot .misc-links li {
+            display: inline;
+        }
+
+            #foot .misc-links li:before {
+                content: "\000B7\000A0"; /* put dots in between the links */
+                margin: 0 3px;
+            }
+
+            #foot .misc-links li:first-child:before {
+                display: none; /* don't put dot before first one */
+            }
+
+    #foot .right {
+        text-align: right;
+    }
+
+    #foot > div > * > * { /* things directly within the left/right subsections */
+        margin-top: .6em;
+    }
+
+        #foot > div > * > *:first-child { /* top thing should butt up. workaroud for floating */
+            margin-top: 0;
+        }
+
+
+/* common
+--------------------------------------------------------------------------------------------------*/
+
+/* float-positioning */
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+/* 2-column structure */
+
+.two-col {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    .two-col > .content {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .two-col > .content {
+        width: 99%;
+    }
+
+/* homepage
+--------------------------------------------------------------------------------------------------*/
+
+#home-page .two-col {
+    margin: 39px 0 40px;
+}
+
+#home-page #calendar {
+    font-size: 14px;
+}
+
+    #home-page #calendar .fc-event {
+        /* adjust hue */
+        background-color: #3b91ad;
+        border-color: #3b91ad;
+    }
+
+        #home-page #calendar .fc-event:hover {
+            text-decoration: none; /* undo a previous rule */
+        }
+
+#home-page .larger-link-wrap {
+    margin-top: 1em;
+}
+
+/* banner
+--------------------------------------------------------------------------------------------------*/
+
+#docs-page #banner {
+    color: #FE8E14;
+    height: 20px;
+}
+
+
+/* index & article common
+--------------------------------------------------------------------------------------------------*/
+
+/* because there is always a 2-col */
+/*#docs-page #body > div {
+    margin-top: 0; 
+}*/
+
+#docs-index-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#docs-index-content li {
+    margin: .6em 0;
+    padding: 0;
+}
+
+    #docs-index-content li a {
+        color: #444;
+    }
+
+/* tables */
+
+#docs-page table {
+    width: 800px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#docs-page td,
+#docs-page th {
+    vertical-align: top;
+}
+
+.checked {
+    background: url(imgs/yellow_checked.gif) no-repeat center center;
+}
+
+.ActiveX {
+    background: url(imgs/ActiveX.png) no-repeat center center;
+}
+.plugin {
+    background: url(imgs/plugin.png) no-repeat center center;
+}
+.mac {
+    background: url(imgs/mac.png) no-repeat center center;
+}
+.deleted {
+    background: url(imgs/deleted.png) no-repeat center center;
+}
+.deprecatedAPI {
+	background: url(imgs/not_recommended.png) no-repeat center center;
+}
+/* index layout
+--------------------------------------------------------------------------------------------------*/
+
+#docs-index-content {
+    width: 900px;
+    margin: 0 auto;
+    _margin: 0 40px;
+    _margin-right: 25px;
+    padding-bottom: 50px;
+}
+
+    #docs-index-content table {
+        table-layout: fixed;
+    }
+
+    #docs-index-content h3 {
+        margin-top: 1.25em; /* undo our trick */
+    }
+
+/*#docs-index-content .deprecated li {
+        float: left;
+        margin: 0 1em .7em 0;
+    }*/
+
+
+/* category layout
+--------------------------------------------------------------------------------------------------*/
+
+#docs-page .content dl.toc {
+    margin-left: 0;
+}
+
+#docs-page .content .toc dt {
+    font-size: 18px;
+}
+
+
+/* article content
+--------------------------------------------------------------------------------------------------*/
+
+
+/* version number next to article title */
+
+#docs-page .content h2 em {
+    position: relative;
+    left: 5px;
+    top: -3px;
+    border: 1px solid #ccc;
+    padding: 0 2px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #666;
+}
+
+#docs-page .notice {
+    width: 800px;
+    margin: 1.2em 0;
+    padding: .5em;
+    background: rgb(255, 224, 190);
+    border: 1px solid #D49D49;
+}
+
+#docs-page .specialnotice {
+    width: 800px;
+    margin: 1.2em 0;
+    padding: .5em;
+    background: rgb(239, 156, 156);
+    border: 1px solid #D49DD9;
+}
+
+
+/* deprecated/removed notice that goes at the top */
+
+#docs-page .removed-notice {
+    margin: 1.2em 0;
+    padding: .5em;
+    background: rgb(255, 224, 190);
+    border: 1px solid #D49D49;
+}
+
+    #docs-page .removed-notice p {
+        margin: 0;
+    }
+
+
+/* technical details of the setting or method */
+
+#docs-page .spec {
+    width: 800px;
+    background: #d7f0f7;
+    border: 1px solid #a9dded;
+    margin: 1.5em 0;
+    padding: .5em;
+}
+
+    #docs-page .spec a {
+        color: #0084AD;
+    }
+
+    #docs-page .spec p {
+        margin: 0;
+    }
+
+    #docs-page .spec pre {
+        margin: .5em 0 0 0;
+        border-color: #d3d3d3;
+    }
+
+
+/* adjust headings */
+
+#docs-page h2 {
+    font-size: 28px;
+}
+
+#docs-page h3 {
+    font-size: 22px;
+}
+
+#docs-page h4 {
+    font-size: 20px;
+}
+
+
+/* table */
+
+#docs-page .content table {
+    margin: 1.5em 0;
+}
+
+#docs-page .content td,
+#docs-page .content th {
+    text-align: left;
+    border: 1px solid #E4E4E4;
+    padding: 7px 10px;
+}
+
+#docs-page .content th {
+    background: #f2f2f2;
+    border-color: #ddd;
+}
+
+#docs-page .content td p {
+    margin: 0 0 .5em;
+}
+#docs-page  .content td.method {
+	padding-left:20px;
+}
+#docs-page  .content td.property {
+	padding-left:20px;
+}
+#docs-page  .content td.event {
+	padding-left:20px;
+}
+
+/* syntax highlighting
+--------------------------------------------------------------------------------------------------*/
+
+.type {
+    color: #07a;
+}
+
+pre {
+    max-width: 800px;
+}
+
+    pre code {
+        display: block;
+        background: #F0F0F0;
+    }
+
+    pre code,
+    pre .ruby .subst,
+    pre .xml .title,
+    pre .lisp .title {
+        color: black;
+    }
+
+    pre .string,
+    pre .title,
+    pre .parent,
+    pre .tag .attribute .value,
+    pre .rules .value,
+    pre .rules .value .number,
+    pre .preprocessor,
+    pre .ruby .symbol,
+    pre .instancevar,
+    pre .aggregate,
+    pre .template_tag,
+    pre .django .variable,
+    pre .smalltalk .class,
+    pre .addition,
+    pre .flow,
+    pre .stream,
+    pre .bash .variable,
+    pre .apache .tag,
+    pre .apache .cbracket {
+        color: #800;
+    }
+
+    pre .comment,
+    pre .annotation,
+    pre .template_comment,
+    pre .diff .header,
+    pre .chunk {
+        color: #888;
+    }
+
+    pre .number,
+    pre .date,
+    pre .regexp,
+    pre .literal,
+    pre .smalltalk .symbol,
+    pre .smalltalk .char,
+    pre .change {
+        color: #080;
+    }
+
+    pre .label,
+    pre .javadoc,
+    pre .ruby .string,
+    pre .decorator,
+    pre .filter .argument,
+    pre .localvars,
+    pre .array,
+    pre .attr_selector,
+    pre .pseudo,
+    pre .pi,
+    pre .doctype,
+    pre .deletion,
+    pre .envvar,
+    pre .shebang,
+    pre .apache .sqbracket {
+        color: #88F;
+    }
+
+.red {
+    color: red;
+}
+
+pre .keyword,
+pre .id,
+pre .phpdoc,
+pre .title,
+pre .built_in,
+pre .aggregate,
+pre .smalltalk .class,
+pre .winutils,
+pre .bash .variable,
+pre .apache .tag {
+    font-weight: bold;
+}
+
+pre .html .css,
+pre .html .javascript,
+pre .html .vbscript {
+    opacity: 0.5;
+}
+
+
+/* support information
+--------------------------------------------------------------------------------------------------*/
+#docs-page .content #supportinfo{
+    margin: 0
+}
+.content #supportinfo th,.content #supportinfo td{
+    text-align:center;
+}
+.browser-os {
+    width: 21px;
+    height: 21px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url(../Images/icn-browser-os-147x21.png);
+}
+.os-win{
+    background-position: -105px top;
+}
+.os-mac {
+  background-position: -126px top;
+}
+.windowsos{
+    font-size: 14px;
+  line-height: 26px;
+}
+.editiontype{
+    background: #000;
+}

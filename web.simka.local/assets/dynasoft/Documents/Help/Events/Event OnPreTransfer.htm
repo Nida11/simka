@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+    <title>Event OnPreTransfer - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='Event%20OnPreTransfer.htm'>OnPreTransfer</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>OnPreTransfer</h1>
+        <h3>Description</h3>
+        <p>This event is triggered when a page has been scanned and ready to be transferred.</p>
+
+        <div class='spec'>
+            <p>
+                .RegisterEvent(<strong>'OnPreTransfer'</strong>,function(){...});
+            </p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            This is where to check <code><a href="../Properties/prop%20PendingXfers.htm">PendingXFERs</a></code>,
+            <code><a href="../Properties/prop%20ImageLayoutDocumentNumber.htm">ImageLayoutDocumentNumber</a></code>
+            <code><a href="../Properties/prop%20ImageLayoutFrameLeft.htm">ImageLayoutFrameLeft</a></code>,
+            <code><a href="../Properties/prop%20ImageLayoutFrameTop.htm">ImageLayoutFrameTop</a></code>,
+            <code><a href="../Properties/prop%20ImageLayoutFrameRight.htm">ImageLayoutFrameRight</a></code>,
+            <code><a href="../Properties/prop%20ImageLayoutFrameBottom.htm">ImageLayoutFrameBottom</a></code>,
+            <code><a href="../Properties/prop%20ImageLayoutPageNumber.htm">ImageLayoutPageNumber</a></code>,
+            <code><a href="../Properties/prop%20ImageLayoutFrameNumber.htm">ImageLayoutFrameNumber</a></code>.
+        </p>
+        <p>
+            This is also the place to call
+            <code><a href="../Methods/method%20CancelAllPendingTransfers.htm">CancelAllPendingTransfers()</a></code>.
+        </p>
+        <h3>See Also</h3>
+        <code><a href="Event%20OnPreAllTransfers.htm">OnPreAllTransfers</a></code><br />
+        <code><a href="Event%20OnPostTransfer.htm">OnPostTransfer</a></code><br />
+        <code><a href="Event%20OnPostAllTransfers.htm">OnPostAllTransfers</a></code>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.RegisterEvent('OnPreTransfer', function(){
+    DWObject.CancelAllPendingTransfers();
+});</pre>
+        </code>
+    </div>
+</body>
+</html>

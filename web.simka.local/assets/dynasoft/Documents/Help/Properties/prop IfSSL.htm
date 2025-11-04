@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+    <title>Property IfSSL - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20IfSSL.htm'>IfSSL</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>IfSSL</h1>
+        <h3>Description</h3>
+        <p>Returns or sets whether SSL is used when uploading or downloading images.</p>
+        <h3>Data type</h3>
+        <code class="type">&lt;short&gt;</code>
+         <h3>Default value</h3>
+        <code>false</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.IfSSL = ...;</p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            The default value is 'false'. This property is typically used with <code><a href="prop%20HTTPPort.htm">HTTPPort</a></code>. 
+            If IfSSL is set to 'true', make sure HTTPPort is set to a secure port like 443.
+        </p>        
+        <p>
+            When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="prop%20HTTPPort.htm">HTTPPort</a></code>
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+  function btnUpload_onclick() {
+      if (window.location.protocol != "https:") {
+          DWObject.HTTPPort = 80;
+          DWObject.IfSSL = false; // if 80 is the port number of non-secure port
+      }
+      else {
+          DWObject.HTTPPort = 443;
+          DWObject.IfSSL = true; // if 443 is the port number of secure port
+      }
+      DWObject.HTTPUploadThroughPost("127.0.0.1", 0, "/SaveToFile.php", "imageData.jpg");
+      if (DWObject.ErrorCode != 0)
+          alert(DWObject.ErrorString);
+      else //succeded
+          alert("Successful");
+  }
+</pre>
+        </code>
+    </div>
+</body>
+</html>

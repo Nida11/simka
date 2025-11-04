@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+    <title>Method Addon.Webcam.CloseSource - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href=''>Addon.Webcam.CloseSource</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.Webcam.CloseSource()</h1>
+        <h3>Description</h3>
+        <p>Closes the current webcam Data Source.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .Addon.Webcam.CloseSource(); 
+            </p>
+        </div>
+      
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+    
+        <h3>Example</h3>
+         <code class="language-javascript">
+<pre>
+function StopCapture() {
+    if (DWObject) {
+        DWObject.Addon.Webcam.CloseSource();
+    }
+}</pre> 
+           </code>
+            
+        <h3>See Also</h3>
+        <p>
+             <code><a href="method%20Addon.Webcam.CaptureImage.htm">Addon.Webcam.CaptureImage()</a></code>
+        </p>      
+    </div>
+</body>
+</html>

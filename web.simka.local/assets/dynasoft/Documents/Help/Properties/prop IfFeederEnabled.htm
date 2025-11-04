@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+    <title>Property IfFeederEnabled - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20IfFeederEnabled.htm'>IfFeederEnabled</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>IfFeederEnabled</h1>
+        <h3>Description</h3>
+        <p>Returns or sets whether Automatic Document Feeder (ADF) is enabled for scanning.</p>
+        <h3>Data type  </h3>
+        <code class="type">bool</code>
+        <h3>Default Value</h3>
+        <code>true</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.IfFeederEnabled = true;</p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            If the property is set to true,  the Data Source will try acquiring images
+            from the document feeder first. If the Data Source doesn't have a document feeder, the flatbed will be used.
+        </p>
+        <p class="notice">Set this property after <a href="../Methods/method%20OpenSource.htm">OpenSource()</a> and before <a href="../Methods/method%20AcquireImage.htm">AcquireImage()</a>.</p>
+        <p>
+            When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <code><a href="prop%20IfFeederLoaded.htm">IfFeederLoaded</a></code><br />
+        <code><a href="prop%20IfPaperDetectable.htm">IfPaperDetectable</a></code><br />
+        <code><a href="prop%20XferCount.htm">XferCount</a></code><br />
+        <code><a href="prop%20IfAutoFeed.htm">IfAutoFeed</a></code>
+    </div>
+</body>
+</html>

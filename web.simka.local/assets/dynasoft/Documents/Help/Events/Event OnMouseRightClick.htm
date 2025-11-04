@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+    <title>Event OnMouseRightClick - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='Event%20OnMouseRightClick.htm'>OnMouseRightClick</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>OnMouseRightClick</h1>
+        <h3>Description</h3>
+        <p>This event is triggered when the mouse right clicks on an image in Dynamic Web TWAIN viewer.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .RegisterEvent(<strong>'OnMouseRightClick'</strong>,function(sImageIndex){...});
+            </p>
+        </div>
+
+        <h3>Remarks</h3>
+        <p>
+            sImageIndex: the index of the image which was clicked upon.
+        </p>
+        <h3>See Also</h3>
+        <p>
+            <code><a href="Event%20OnMouseMove.htm">OnMouseMove</a></code><br />
+            <code><a href="Event%20OnMouseDoubleClick.htm">OnMouseDoubleClick</a></code><br />
+            <code><a href="Event%20OnMouseClick.htm">OnMouseClick</a></code><br />
+            <code><a href="Event%20OnImageAreaSelected.htm">OnImageAreaSelected</a></code><br />
+            <code><a href="Event%20OnImageAreaDeSelected.htm">OnImageAreaDeSelected</a></code>
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.RegisterEvent('OnMouseRightClick', function(sImageIndex){
+    alert(sImageIndex);
+});</pre>
+        </code>
+    </div>
+</body>
+</html>

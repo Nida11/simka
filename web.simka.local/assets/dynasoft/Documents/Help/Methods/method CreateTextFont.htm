@@ -1,0 +1,67 @@
+﻿<html>
+<head>
+    <title>Method CreateTextFont - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20CreateTextFont.htm'>CreateTextFont</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>CreateTextFont()</h1>
+        <h3>Description</h3>
+        <p>Creates the font for adding text on an image using the method <code><a href="../Methods/method%20AddText.htm">AddText</a></code>.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .CreateTextFont(height, width, escapement, orientation, weight, italic, underline,
+                strikeOut, charSet, outputPrecision, clipPrecision, quality, pitchAndFamily, faceName);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code class="type">&lt;int&gt;</code> <code>height</code>: specifies the desired height of the font.<br />
+        <code class="type">&lt;int&gt;</code> <code>width</code>: specifies the average width of characters in the font.<br />
+        <code class="type">&lt;int&gt;</code> <code>escapement</code>: specifies the angle between the escapement vector and the x-axis of the display surface. The
+        escapement vector is the line through the origins of the first and last
+        characters on a line. The angle is measured counterclockwise from the x-axis.<br />
+        <code class="type">&lt;int&gt;</code> <code>orientation</code>: specifies the angle between the baseline of a character and the x-axis.
+        The angle is measured counterclockwise from the x-axis for coordinate systems in which the y-direction is down
+        and clockwise from the x-axis for coordinate systems in which the y-direction is up.<br />
+        <code class="type">&lt;int&gt;</code> <code>weight</code>: specifies the font weight.<br />
+        <code class="type">&lt;short&gt;</code> <code>italic</code>: specifies an italic font if the value is not 0.<br />
+        <code class="type">&lt;short&gt;</code> <code>underline</code>: specifies an underlined font if the value is not 0.<br />
+        <code class="type">&lt;short&gt;</code> <code>strikeOut</code>: specifies an strikeout font if the value is not 0.<br />
+        <code class="type">&lt;short&gt;</code> <code>charSet</code>: specifies the font's character set.<br />
+        <code class="type">&lt;short&gt;</code> <code>outputPrecision</code>: specifies the desired output precision.
+        The output precision defines how closely the output must match the requested
+        font&#39;s height, width, character orientation, escapement, and pitch.<br />
+        <code class="type">&lt;short&gt;</code> <code>clipPrecision</code>: specifies the desired clipping precision.
+        The clipping precision defines how to clip characters that are partially outside of the clipping region.<br />
+        <code class="type">&lt;short&gt;</code> <code>quality</code>: specifies the font&#39;s output quality which defines
+        how carefully the GDI should attempt to match the logical-font attributes to those
+        of an actual physical font.<br />
+        <code class="type">&lt;short&gt;</code> <code>pitchAndFamily</code>: specifies the pitch and family of the font.<br />
+        <code class="type">&lt;string&gt;</code> <code>faceName</code>: specifies the typeface name, the length of this string must not exceed 32 characters, including the terminating null character.
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Methods/method%20AddText.htm">AddText</a></code>
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.CreateTextFont(50, 30, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, "Arial");
+DWObject.AddText(0, 250, 600, 'Dynamic Web TWAIN', 0x0000ff, 0xff0000, 0.5, 0.5);
+</pre>
+        </code>
+    </div>
+</body>
+</html>

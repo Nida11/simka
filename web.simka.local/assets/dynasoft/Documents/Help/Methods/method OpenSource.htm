@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+    <title>Method OpenSource - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20OpenSource.htm'>OpenSource</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>OpenSource()</h1>
+        <h3>Description</h3>
+        <p>
+            Loads the currently selected Data Source into main memory and initialize it for image acquisition.
+            If no source is specified (neither <a href="method%20SelectSource.htm">SelectSource()</a>
+            nor <a href="method%20SelectSourceByIndex.htm">SelectSourceByIndex()</a> has been called), the default source will be loaded.
+        </p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .OpenSource();
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <code>None</code>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>
+            When <code>false</code> is returned, check <a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a> or
+            <a href="../Properties/prop%20ErrorString.htm">ErrorString</a>
+            for error information.
+        </p>
+        <h3>Remarks</h3>
+        <p class="notice">OpenSource() should be called before capability negotiation.</p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="method%20CloseSource.htm">CloseSource()</a></code><br />
+            <code><a href="method%20OpenSourceManager.htm">OpenSourceManager()</a></code><br />
+            <code><a href="method%20SelectSource.htm">SelectSource()</a></code><br />
+            <code><a href="method%20SelectSourceByIndex.htm">SelectSourceByIndex()</a></code>
+        </p>
+    </div>
+</body>
+</html>

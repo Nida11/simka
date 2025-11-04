@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+    <title>Event OnPostLoad - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='Event%20OnPostLoad.htm'>OnPostLoad</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>OnPostLoad</h1>
+        <h3>Description</h3>
+        <p>This event is triggered when an image file from a local directory has been loaded into the control. If mutliple image files are loaded, this event will be triggered multiple times.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .RegisterEvent(<strong>'OnPostLoad'</strong>,function(path, name, type){...});
+            </p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            path: the local path of the loaded image
+            <br />
+            <br />
+            name: the name of the loaded image
+            <br />
+            <br />
+            type:<br />
+            <table>
+                <tr>
+                    <th>Allowed Values</th>
+                    <th>ImageType</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>BMP</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>JPEG</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>TIFF</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>PNG</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>PDF</td>
+                </tr>
+            </table>
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.RegisterEvent('OnPostLoad', function(path, name, type){
+    alert(path + '\\' + name);
+});</pre>
+        </code>
+    </div>
+</body>
+</html>

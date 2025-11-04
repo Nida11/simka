@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+    <title>Method SetFileXferInfo - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SetFileXferInfo.htm'>SetFileXferInfo</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SetFileXferInfo()</h1>
+
+        <h3>Description</h3>
+        <p>Sets the absolute file name (including its path) and file format to be used in File Transfer Mode.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .SetFileXferInfo(string fileName, EnumDWT_FileFormat fileFormat);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">&lt;string&gt;</code> <code>fileName</code><br /><br />
+            The name of the file to be used in the transfer. For example: <code>"C:\\webtwain.jpg"</code>. <br /> When you write the name like this <code class="type">string</code> + &percnt;d + 
+			<code class="type">string</code>, then when you scan multiple files, the name will automatically change. For example: <code>"C:\\webtwain" + &lt;&gt; + ".jpg"</code> will result in <code>"C:\\webtwain0.jpg"</code>, 
+			<code>"C:\\webtwain1.jpg"</code>, <code>"C:\\webtwain2.jpg"</code>, etc. By doing this, you are now able to scan multiple files to the disk.
+        </p>
+        <p>
+            <code class="type">EnumDWT_FileFormat</code> <code>fileFormat</code><br /><br />
+            An enumerated value that indicates the format of the image. For example: <code>EnumDWT_FileFormat.TWFF_JFIF</code>
+        </p>
+        <p>
+            <strong>Allowed formats</strong>
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>TWFF_TIFF</code></td>
+                    <td>0</td>
+                    <td>Tagged Image File Format. Used for document imaging. Native Linux format</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_PICT</code></td>
+                    <td>1</td>
+                    <td>Native Macintosh format</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_BMP</code></td>
+                    <td>2</td>
+                    <td>Native Microsoft format</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_XBM</code></td>
+                    <td>3</td>
+                    <td>X-Windows Bitmap used for document imaging</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_JFIF</code></td>
+                    <td>4</td>
+                    <td>JPEG File Interchange Format. Wrapper for JPEG images</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_FPX</code></td>
+                    <td>5</td>
+                    <td>FlashPix, used with digital cameras</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_TIFFMULTI</code></td>
+                    <td>6</td>
+                    <td>Multi-page TIFF files</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_PNG</code></td>
+                    <td>7</td>
+                    <td>An image format standard intended for use on the web, replaces GIF</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_SPIFF</code></td>
+                    <td>8</td>
+                    <td>A standard from JPEG, intended to replace JFIF, also supports JBIG</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_EXIF</code></td>
+                    <td>9</td>
+                    <td>File format for use with digital cameras</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_PDF</code></td>
+                    <td>10</td>
+                    <td>A file format from Adobe (TWAIN Spec 1.91)</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_JP2</code>
+                    <td>11</td>
+                    <td>A file format from the Joint Photographic Experts Group ISO/IEC 15444-1 (TWAIN Spec 1.91)</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_JPX</code></td>
+                    <td>13</td>
+                    <td>A file format from the Joint Photographic Experts Group ISO/IEC 15444-2 (TWAIN Spec 1.91)</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_DEJAVU</code></td>
+                    <td>14</td>
+                    <td>A file format from LizardTech (TWAIN Spec 1.91)</td>
+                </tr>
+                <tr>
+                    <td><code>TWFF_PDFA</code></td>
+                    <td>15</td>
+                    <td>A file format from Adobe PDF/A, Version 1 (TWAIN Spec 2.0)</td>
+
+                </tr>
+                <tr>
+                    <td><code>TWFF_PDFA2</code></td>
+                    <td>16</td>
+                    <td>A file format from Adobe PDF/A, Version 2 (TWAIN Spec 2.1)</td>
+                </tr>
+            </table>
+        </p>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>
+            When <code>false</code> is returned, check <a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a> or
+            <a href="../Properties/prop%20ErrorString.htm">ErrorString</a>
+            for error information.
+        </p>
+        <h3>Remarks</h3>
+        <p>
+            The <code>SetFileXferInfo()</code> method is valid only in File Transfer Mode.
+            In File Transfer Mode, the image is transferred to the designated location on the disk directly instead of Dynamic Web TWAIN.
+        </p>
+        <p class="notice">
+            Make sure the format you set is supported by the Data Source (your scanner).
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+<pre>
+DWObject.OpenSource();
+DWObject.TransferMode = EnumDWT_TransferMode.TWSX_FILE;
+if(DWObject.TransferMode == EnumDWT_TransferMode.TWSX_FILE){
+	if(DWObject.SetFileXferInfo("C:\\Temp\\WebTWAIN<>.bmp", EnumDWT_FileFormat.TWFF_BMP)){
+		DWObject.IfShowUI = true;		
+		DWObject.AcquireImage(); 
+	}
+}  </pre>
+        </code>
+        <h3>See also</h3>
+        <p>
+            <code><a href="../Properties/prop%20TransferMode.htm">TransferMode</a></code>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿<html>
+<head>
+    <title>Property ImageLayoutFrameTop - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20ImageLayoutFrameTop.htm'>ImageLayoutFrameTop</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>ImageLayoutFrameTop</h1>
+        <h3>Description</h3>
+        <p>
+            Returns the value of the top-most edge of the current image frame (in
+            <code><a href="../Properties/prop Unit.htm">Unit</a></code>). This is a read-only property.
+        </p>
+        <h3>Data type</h3>
+        <code class="type">&lt;float&gt;</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.ImageLayoutFrameTop;</p>
+        </div>
+        <h3>Remarks</h3>
+        <p>
+            The unit of ImageLayoutFrameTop property is determined by
+            <code><a href="../Properties/prop Unit.htm">Unit</a></code> property.
+        </p>
+        <p>
+            The default unit is assumed to be "inches" unless it has been otherwise negotiated between the application and Data Source.
+        </p>
+        <p>
+            ImageLayoutFrameTop property, along with other properties about the current image
+            information, is valid only in <code><a href="../Events/Event%20OnPreTransfer.htm">OnPreTransfer</a></code> and
+            <code><a href="../Events/Event%20OnPostTransfer.htm">OnPostTransfer</a></code>
+            event.
+        </p>
+        <p>
+            The frame information here is only about the current frame. To get the information about all the frames to be transferred in an
+            acquire session, please use capability negotiation.
+            The capability to be negotiated is ICAP_FRAMES (4372). Please
+            refer to <a target="_blank" href="http://www.dynamsoft.com/download/Support/Dynamic%20Web%20TWAIN%20Capability%20Negotiation.pdf">How to negotiate ICAP_FRAMES</a> for details and
+            sample code.
+        </p>
+        <p>
+            When an error occurs,
+            check <code><a href="prop%20ErrorString.htm">ErrorString</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="prop%20ImageLayoutFrameLeft.htm">ImageLayoutFrameLeft</a></code><br />
+            <code><a href="prop%20ImageLayoutFrameRight.htm">ImageLayoutFrameRight</a></code><br />
+            <code><a href="prop%20ImageLayoutFrameBottom.htm">ImageLayoutFrameBottom</a></code><br />
+            <code><a href="prop%20ImageLayoutDocumentNumber.htm">ImageLayoutDocumentNumber</a></code><br />
+            <code><a href="prop%20ImageLayoutPageNumber.htm">ImageLayoutPageNumber</a></code><br />
+            <code><a href="prop%20ImageLayoutFrameNumber.htm">ImageLayoutFrameNumber</a></code><br />
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<html>
+<head>
+    <title>Function Prototypes - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='Function%20Prototypes.htm'>Function Prototypes</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Function Prototypes</h1>
+        <p>
+            The following are all the function prototypes used in Dynamic Web TWAIN.
+        </p>
+        <h2 id="OnSuccess"><br />OnSuccess()</h2>
+        <table>
+            <tr>
+                <th style="width:80px;">Parameters</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>None</code></td>
+                <td><code class="type">N/A</code></td>
+                <td><code>N/A</code></td>
+            </tr>
+        </table>
+        <h2 id="OnFailure"><br />OnFailure(errorCode, errorString)</h2>
+        <p>
+            Optional callback function used in the following methods<br />
+
+        </p>
+        <table>
+            <tr>
+                <th style="width:80px;">Parameters</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>errorCode</code></td>
+                <td><code class="type">&lt;int&gt;</code></td>
+                <td>the error code</td>
+            </tr>
+            <tr>
+                <td><code>errorString</code></td>
+                <td><code class="type">&lt;string&gt;</code></td>
+                <td>the error string</td>
+            </tr>
+        </table>
+        <p class="notice">
+            OnSuccess() and OnFailure() are Function prototypes for the optional callback function used in the following methods<br />
+			<code><a href="../Methods/method%20ConvertToBase64.htm">ConvertToBase64</a></code>
+            <code><a href="../Methods/method%20FTPDownload.htm">FTPDownload</a></code><br />
+            <code><a href="../Methods/method%20FTPDownloadDirectly.htm">FTPDownloadDirectly</a></code><br />
+            <code><a href="../Methods/method%20FTPDownloadEx.htm">FTPDownloadEx</a></code><br />
+            <code><a href="../Methods/method%20FTPUpload.htm">FTPUpload</a></code><br />
+            <code><a href="../Methods/method%20FTPUploadAllAsMultiPageTIFF.htm">FTPUploadAllAsMultiPageTIFF</a></code><br />
+            <code><a href="../Methods/method%20FTPUploadAllAsPDF.htm">FTPUploadAllAsPDF</a></code><br />
+            <code><a href="../Methods/method%20FTPUploadAsMultiPagePDF.htm">FTPUploadAsMultiPagePDF</a></code><br />
+            <code><a href="../Methods/method%20FTPUploadAsMultiPageTIFF.htm">FTPUploadAsMultiPageTIFF</a></code><br />
+            <code><a href="../Methods/method%20FTPUploadDirectly.htm">FTPUploadDirectly</a></code><br />
+            <code><a href="../Methods/method%20FTPUploadEx.htm">FTPUploadEx</a></code><br />
+            <code><a href="../Methods/method%20HTTPDownload.htm">HTTPDownload</a></code><br />
+            <code><a href="../Methods/method%20HTTPDownloadDirectly.htm">HTTPDownloadDirectly</a></code><br />
+            <code><a href="../Methods/method%20HTTPDownloadEx.htm">HTTPDownloadEx</a></code><br />
+            <code><a href="../Methods/method%20LoadDibFromClipboard.htm">LoadDibFromClipboard</a></code><br />
+            <code><a href="../Methods/method%20LoadImage.htm">LoadImage</a></code><br />
+            <code><a href="../Methods/method%20LoadImageEx.htm">LoadImageEx</a></code><br />
+            <code><a href="../Methods/method%20SaveAllAsMultiPageTIFF.htm">SaveAllAsMultiPageTIFF</a></code><br />
+            <code><a href="../Methods/method%20SaveAllAsPDF.htm">SaveAllAsPDF</a></code><br />
+            <code><a href="../Methods/method%20SaveSelectedImagesAsMultiPagePDF.htm">SaveSelectedImagesAsMultiPagePDF</a></code><br />
+            <code><a href="../Methods/method%20SaveSelectedImagesAsMultiPageTIFF.htm">SaveSelectedImagesAsMultiPageTIFF</a></code>
+        </p>
+        <h2 id="OnBarcodeReadSuccess"><br />OnBarcodeReadSuccess(sImageIndex, result)</h2>
+        <table>
+            <tr>
+                <th style="width:80px;">Parameters</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>sImageIndex</code></td>
+                <td><code class="type">&lt;short&gt;</code></td>
+                <td>specifies the index of the image.</td>
+            </tr>
+            <tr>
+                <td><code>result</code></td>
+                <td><code class="type">&lt;BarcodeResult&gt;</code></td>
+                <td>*<code class="type">&lt;BarcodeResult&gt;</code>, check out <code><a href="../Methods/method%20Addon.Barcode.Read.htm">Addon.Barcode.Read</a></code> or <code><a href="../Methods/method%20Addon.Barcode.ReadRect.htm">Addon.Barcode.ReadRect</a></code></td>
+            </tr>
+        </table>
+        <h2 id="OnBarcodeReadFailure"><br />OnBarcodeReadFailure(errorCode, errorString)</h2>
+        <table>
+            <tr>
+                <th style="width:80px;">Parameters</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>errorCode</code></td>
+                <td><code class="type">&lt;int&gt;</code></td>
+                <td>the error code</td>
+            </tr>
+            <tr>
+                <td><code>errorString</code></td>
+                <td><code class="type">&lt;string&gt;</code></td>
+                <td>the error string</td>
+            </tr>
+        </table>
+        <p class="notice">
+            OnBarcodeReadSuccess() and OnBarcodeReadFailure() are Function prototypes for the optional callback function used in the following methods<br />
+            <code><a href="../Methods/method%20Addon.Barcode.Read.htm">Addon.Barcode.Read</a></code><br />
+            <code><a href="../Methods/method%20Addon.Barcode.ReadRect.htm">Addon.Barcode.ReadRect</a></code>
+        </p>
+        <h2 id="OnHttpUploadSuccess"><br />OnHttpUploadSuccess(sHttpResponse)</h2>
+        <table>
+            <tr>
+                <th style="width:80px;">Parameters</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>sHttpResponse</code></td>
+                <td><code class="type">&lt;string&gt;</code></td>
+                <td>the information returned from the server after the upload</td>
+            </tr>
+        </table>
+        <h2 id="OnHttpUploadFailure"><br />OnHttpUploadFailure(errorCode, errorString, sHttpResponse)</h2>
+        <table>
+            <tr>
+                <th style="width:80px;">Parameters</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>errorCode</code></td>
+                <td><code class="type">&lt;int&gt;</code></td>
+                <td>the error code</td>
+            </tr>
+            <tr>
+                <td><code>errorString</code></td>
+                <td><code class="type">&lt;string&gt;</code></td>
+                <td>the error string</td>
+            </tr>
+            <tr>
+                <td><code>sHttpResponse</code></td>
+                <td><code class="type">&lt;string&gt;</code></td>
+                <td>the detailed error information returned from the server</td>
+            </tr>
+        </table>
+        <p class="notice">
+            OnHttpUploadSuccess() and OnHttpUploadFailure() are Function prototypes for the optional callback function used in the following methods<br />
+			<code><a href="../Methods/method%20HTTPUpload.htm">HTTPUpload</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadAllThroughPostAsMultiPageTIFF.htm">HTTPUploadAllThroughPostAsMultiPageTIFF</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadAllThroughPostAsPDF.htm">HTTPUploadAllThroughPostAsPDF</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadThroughPost.htm">HTTPUploadThroughPost</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadThroughPostAsMultiPagePDF.htm">HTTPUploadThroughPostAsMultiPagePDF</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadThroughPostAsMultiPageTIFF.htm">HTTPUploadThroughPostAsMultiPageTIFF</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadThroughPostDirectly.htm">HTTPUploadThroughPostDirectly</a></code><br />
+            <code><a href="../Methods/method%20HTTPUploadThroughPostEx.htm">HTTPUploadThroughPostEx</a></code>
+        </p>
+        <h3>See Also</h3>
+        <p>
+            <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code><br />
+            <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Method SetHTTPHeader - Dynamic Web TWAIN 12</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20SetHTTPHeader.htm'>SetHTTPHeader</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>SetHTTPHeader()</h1>
+        <h3>Description</h3>
+        <p>Add a header to an http(s) post request. This header will be cleared every time an HTTPUpload/HTTPDownload request is done.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.SetHTTPHeader(HeaderName, HeaderValue);</p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">&lt;string&gt;</code> <code>HeaderName</code>: specifies the name of the header which can later be used on the server to retrieve the header value.<br />
+            <code class="type">&lt;string&gt;</code> <code>HeaderValue</code>: specifies the header value.<br />
+        </p>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+    	<h3>Remarks</h3>
+        <p class="notice">This method is valid only in HTML5 Edtion</p>
+		<h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+DWObject.SetHTTPHeader('dwt_CustomHeader','dynamsoft');
+DWObject.HTTPUpload ('www.dynamsoft.com/SaveToFile.aspx?filename=001.pdf', [0,1], EnumImageType.PDF, 
+EnumDWT_UploadDataFormat.BINARY, true, OnHttpUploadSuccess, OnHttpUploadFailure);
+function OnHttpUploadSuccess (httpResponse) {
+    console.log("HTTPResponseString: " + httpResponse);
+}
+ 
+function OnHttpUploadFailure (errorCode, errorString, httpResponse) {
+    alert("ErrorCode: " + errorCode+ "ErrorString: " + errorString + "HTTPResponseString: " + httpResponse);
+} 
+</pre>
+        </code>
+	</div>
+</body>
+</html>

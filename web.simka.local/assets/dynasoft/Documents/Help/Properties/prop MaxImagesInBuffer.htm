@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+    <title>Property MaxImagesInBuffer - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20MaxImagesInBuffer.htm'>MaxImagesInBuffer</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>MaxImagesInBuffer</h1>
+        <h3>Description</h3>
+        <p>Returns or sets how many images are allowed to be acquired. </p>
+        <h3>Data type</h3>
+        <code class="type">&lt;short&gt;</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.MaxImagesInBuffer = 1024;</p>
+        </div>
+
+        <h3>Remarks</h3>
+        <p>The default value of this property is 32767.</p>
+        <p>
+            If you set MaxImagesInBuffer to be smaller than HowManyImagesInBuffer,
+            the extra images in buffer will be removed.
+        </p>
+
+        <p>
+            When image buffer is full, that is HowManyImagesInBuffer equals MaxImagesInBuffer,
+            the newly acquired or loaded image will replace the existing ones from the first one on.
+        </p>
+        <p>
+            When an error occurs,check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+
+        <h3>See also</h3>
+        <p>
+            <code><a href="prop%20HowManyImagesInBuffer.htm">HowManyImagesInBuffer</a></code><br />
+            <code><a href="prop%20CurrentImageIndexInBuffer.htm">CurrentImageIndexInBuffer</a></code>
+        </p>
+    </div>
+</body>
+</html>

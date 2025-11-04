@@ -1,0 +1,150 @@
+﻿<html>
+<head>
+    <title>Method AcquireImage - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+       <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+       <a href='method%20AcquireImage.htm'>AcquireImage</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>AcquireImage()</h1>
+
+        <h3>Description</h3>
+        <p>
+            Starts image acquisition.
+        </p>
+
+        <h3 style="display: none;">Support information</h3>
+        <table id="supportinfo" style="display: none;">
+
+            <tr>
+                <th colspan="3" class="windowsos"><span class="browser-os os-win"></span> &nbsp;&nbsp; |&nbsp;&nbsp;  Windows OS</th>
+                <th class="windowsos"><span class="browser-os os-mac"></span>&nbsp;&nbsp; |&nbsp;&nbsp;Mac OS</th>
+            </tr>
+            <tr class="editiontype">
+                <th>HTML5 Edition</th>
+                <th>ActiveX Edition</th>
+                <th>Plug-in Edition</th>
+                <th>Mac Edition</th>
+            </tr>
+            <tr>
+                <td class="windows">Since V10.1</td>
+                <td class="windows">Since V8.0</td>
+                <td class="windows">Since V8.0</td>
+                <td>Since V8.0</td>
+            </tr>
+        </table>
+
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .AcquireImage([optionalDeviceConfig], [optionalAsyncSuccessFunc, optionalAsyncFailureFunc]);
+            </p>
+        </div>
+
+        <h3>Parameters</h3>
+        
+        <p>
+            <code class="italic">optional</code> <code>optionalDeviceConfig</code> A JS object used to set up the device for image acquisition.
+        </p>
+
+        
+        <p>
+            <code class="type">&lt;OnSuccess function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncSuccessFunc</code>: callback function triggered when acquiring image succeeds. <br />
+            <code class="type">&lt;OnFailure function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncFailureFunc</code>: callback function triggered when acquiring image fails.
+        </p>
+        <p class="specialnotice">
+            Please refer to the function prototype <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnSuccess"><code class="type">OnSuccess</code></a> or <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnFailure"><code class="type">OnFailure</code></a>.
+        </p>
+        <p class="notice">
+          The callback functions are only avaliable for IE 10/11, Edge, Chrome 27+ and Firefox 27+. </br>
+          As the parameters are all optional, there are 4 options for you to use this method. Please check out the following info and the examples at the bottom of this manual for more details.
+        </p>
+        
+        <code class="language-javascript">
+            <pre><span class="comment">//The following 2 options don't invoke the callback functions.</span>
+DWObject.AcquireImage();
+DWObject.AcquireImage(DeviceConfig);
+
+<span class="comment">//The following 2 options invoke the callback functions.</span>
+DWObject.AcquireImage(AsyncSuccessFunc, AsyncFailureFunc);
+DWObject.AcquireImage(DeviceConfig, AsyncSuccessFunc, AsyncFailureFunc);</pre>
+        </code>        
+
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>
+            When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">
+                ErrorCode
+            </a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>Remarks</h3>
+        <p>
+            This method does the same thing as <code><a href="method%20EnableSource.htm">EnableSource()</a></code>.
+            The purpose of providing this method is to enable user to handle Twain-compliant
+            image acquisition device without knowing the terms used in Twain specification.
+        </p>
+        <p class="notice">
+            The method returns as soon as the scanning starts. In other words, it's an asynchronous method.
+        </p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre><span class="comment">//Callback functions for AcquireImage, only valid in version 11.3 and above</span>
+function OnSuccess() {
+    console.log('successful');
+}
+
+function OnFailure(errorCode, errorString) {        	
+    alert(errorString);
+}
+
+<span class="comment">//Traditional way to start the acquisition</span>        
+function Acquire_onclick() {
+    DWObject.SelectSource();  
+    DWObject.OpenSource();     
+    DWObject.IfShowUI = false;
+    DWObject.PixelType = 2;
+    DWObject.Resolution = 200;
+    DWObject.IfFeederEnabled = true;
+    DWObject.IfDuplexEnabled = false;
+    DWObject.IfDisableSourceAfterAcquire = true;
+    
+    <span class="comment">//Invokes the method with the callback functions.</span>       
+    DWObject.AcquireImage(OnSuccess, OnFailure);
+}</pre>
+        </code>
+        
+<code class="language-javascript">
+            <pre>
+<span class="comment">//Use the optional parameter to set up the acquisition, only valid in version 10 and above</span>
+function Acquire_onclick() {
+    DWObject.SelectSource();  
+    DWObject.OpenSource();     
+    var <strong class="red">_obj</strong> = {};
+            <strong class="red">_obj</strong>.IfShowUI = false;
+            <strong class="red">_obj</strong>.PixelType = 2;
+            <strong class="red">_obj</strong>.Resolution = 200;
+            <strong class="red">_obj</strong>.IfFeederEnabled = true;
+            <strong class="red">_obj</strong>.IfDuplexEnabled = false;
+            <strong class="red">_obj</strong>.IfDisableSourceAfterAcquire = true;        
+    DWObject.AcquireImage(<strong class="red">_obj</strong>);
+}
+            </pre>
+        </code>
+
+        <h3>See also</h3>
+        <p>
+            <code><a href="method%20EnableSource.htm">EnableSource()</a></code>
+        </p>
+    </div>
+</body>
+</html>

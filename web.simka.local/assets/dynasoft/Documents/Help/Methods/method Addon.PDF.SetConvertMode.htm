@@ -1,0 +1,90 @@
+﻿<html>
+<head>
+    <title>Property Addon.PDF.SetConvertMode - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='../index.htm#002'>Addons</a>&nbsp;&gt;&nbsp;
+        <a href='method%20Addon.PDF.SetConvertMode.htm'>Addon.PDF.SetConvertMode</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>Addon.PDF.SetConvertMode()</h1>
+        <h3>Description</h3>
+        <p>
+            Sets the image convert mode for the PDF Rasterizer.
+        </p>
+        <h3>Data type</h3>
+        <code class="type">EnumDWT_ConvertMode</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.Addon.PDF.SetConvertMode(EnumDWT_ConvertMode.CM_RENDERALL);</p>
+        </div>
+        <h3>Remarks</h3>
+        <p class="notice">Use this method before you import a PDF into the control with methods such as <a href="method%20LoadImage.htm">LoadImage()</a> and <a href="method%20FTPDownload.htm">FTPDownload()</a>.</p>
+        <table style="width:818px;">
+            <tr>
+                <th width="130px">Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>CM_DEFAULT (0)</td>
+                <td>
+                    It's the default mode. In this mode, the PDF Rasterizer is turned off.
+                </td>
+            </tr>
+            <tr>
+                <td>CM_RENDERALL (1)</td>
+                <td>
+                    All the content in the target PDF file will converted in a set resolution in this mode. 
+                    The value of the resolution is 200 by default but can be set via the method <a href="method%20Addon.PDF.SetResolution.htm">Addon.PDF.SetResolution</a>.                    
+                </td>
+            </tr>
+        </table>
+        <p>The default mode is CM_DEFAULT (0).</p>
+        <p>
+            When an error occurs, check <code><a href="..\Properties\prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="..\Properties\prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+                    <h3>See also</h3>
+            <p>
+            <code><a href="method%20Addon.PDF.SetResolution.htm">Addon.PDF.SetResolution()</a></code><br/>
+            <code><a href="method%20LoadImage.htm">LoadImage()</a></code><br/>
+            <code><a href="method%20HTTPDownload.htm">HTTPDownload()</a></code>
+        		</p>
+        <h3>Example</h3>
+        <code class="language-javascript">
+            <pre>
+  // Callback functions for async APIs
+  function OnSuccess() {
+      console.log('successful');
+  }
+
+  function OnFailure(errorCode, errorString) {
+      alert(errorString);
+  }
+
+  function LoadImage() {
+      if (DWObject) {
+          // Call DWObject.Addon.PDF.Download(url) to download PDF Rasterizer module to local.
+          DWObject.Addon.PDF.SetConvertMode(EnumDWT_ConvertMode.CM_RENDERALL);
+          DWObject.Addon.PDF.SetResolution(100);  
+
+          // Open the system's file dialog to load image
+          DWObject.IfShowFileDialog = true;
+
+          // Load images in all supported formats (.bmp, .jpg, .tif, .png, .pdf). 
+          // OnSuccess or OnFailure will be called after the operation.
+          DWObject.LoadImageEx("", EnumDWT_ImageType.IT_PDF, OnSuccess, OnFailure);
+      }
+  }
+						</pre>
+            </code>
+
+    </div>
+</body>
+</html>

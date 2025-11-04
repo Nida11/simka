@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+    <title>Method FTPUploadAllAsMultiPageTIFF - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20FTPUploadAllAsMultiPageTIFF.htm'>FTPUploadAllAsMultiPageTIFF</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>FTPUploadAllAsMultiPageTIFF()</h1>
+        <h3>Description</h3>
+        <p>Uploads all the images in buffer to the FTP server as a TIFF file.</p>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.FTPUploadAllAsMultiPageTIFF(fTPServer, fileName, [optionalAsyncSuccessFunc, optionalAsyncFailureFunc]);</p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">&lt;string&gt;</code> <code>fTPServer</code>: specifies the FTP server.<br />
+            <code class="type">&lt;string&gt;</code> <code>fileName</code>: specifies the file name, path included.<br />
+        </p>
+        <p class="specialnotice">The following two parameters are optional. If either one exists or both exist, the method is asynchronous, otherwise it's synchronous.</p>
+        <p>
+            <code class="type">&lt;OnSuccess function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncSuccessFunc</code>: callback function triggered when the file is uploaded successfully. <br />
+            <code class="type">&lt;OnFailure function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncFailureFunc</code>: callback function triggered when the file failed to be uploaded.
+        </p>
+        <p class="specialnotice">
+            Please refer to the function prototype <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnSuccess"><code class="type">OnSuccess</code></a> or <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnFailure"><code class="type">OnFailure</code></a>.
+        </p>
+        <h3>Return value</h3>
+        <p class="notice">Only valid when used synchronously.</p>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+        <h3>See also</h3>
+				<p>
+  				<code><a href="../Properties/prop%20TiffCompressionType.htm">TiffCompressionType</a></code>
+				</p>
+    </div>
+</body>
+</html>

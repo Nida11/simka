@@ -1,0 +1,115 @@
+﻿<html>
+<head>
+    <title>Method HTTPUploadThroughPostDirectly - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='method%20HTTPUploadThroughPostDirectly.htm'>HTTPUploadThroughPostDirectly</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>HTTPUploadThroughPostDirectly()</h1>
+        <h3>Description</h3>
+        <p>Uploads a local file directly to the HTTP server without opening it.</p>
+
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>
+                .HTTPUploadThroughPostDirectly(hTTPServer, localFile, actionPage, fileName, [optionalAsyncSuccessFunc, optionalAsyncFailureFunc]);
+            </p>
+        </div>
+        <h3>Parameters</h3>
+        <p>
+            <code class="type">&lt;string&gt;</code> <code>hTTPServer</code>: specifies the name of HTTP server. For example: "www.dynamsoft.com", "localhost", "127.0.0.1".<br />
+            <code class="type">&lt;string&gt;</code> <code>localFile</code>: specifies the absoute path of the file to be uploaded.<br />
+            <code class="type">&lt;string&gt;</code> <code>actionPage</code>: specifies the relative path for the action page. The action page will receive and process the uploaded image stream. See <a href="#skip">code snippet</a>.<br />
+            <code class="type">&lt;string&gt;</code> <code>fileName</code>: specifies the file name.<br />
+        </p>
+        <p class="specialnotice">The following two parameters are optional. If either one exists or both exist, the method is asynchronous, otherwise it's synchronous.</p>
+        <p>
+            <code class="type">&lt;OnHttpUploadSuccess function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncSuccessFunc</code>: callback function triggered when the file is uploaded successfully. <br />
+            <code class="type">&lt;OnHttpUploadFailure function&gt;</code> <code class="italic">optional</code> <code>optionalAsyncFailureFunc</code>: callback function triggered when the file failed to be uploaded.
+        </p>
+        <p class="specialnotice">
+            Please refer to the function prototype <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnHttpUploadSuccess"><code class="type">OnHttpUploadSuccess</code></a> or <a href="../Programmer%20Guide/Function%20Prototypes.htm#OnHttpUploadFailure"><code class="type">OnHttpUploadFailure</code></a>.
+        </p>
+        
+        <h3>Return value</h3>
+        <p class="notice">Only valid when used synchronously.</p>
+        <p><code class="type">bool</code></p>
+        <p>
+            <code>true</code> indicates success. <code>false</code> indicates failure.
+        </p>
+        <p>When <code>false</code> is returned, check <code><a href="../Properties/prop%20ErrorCode.htm">ErrorCode</a></code> or <code><a href="../Properties/prop%20ErrorString.htm">ErrorString</a></code> for error information.</p>
+    <h3>Remarks</h3>
+        <p>
+            Dynamic Web TWAIN processes the image format according to the extension of <code>fileName</code>.
+        </p>
+         <p class="notice">If you want to use this method to upload / download files through HTTPS, please don't forget to set <a href="../Properties/prop%20IfSSL.htm">IfSSL</a> to true and set the correct <a href="../Properties/prop%20HTTPPort.htm">HTTPPort</a>. </p>
+    <h3 id="skip">Example</h3>
+		<p>The sample shows how to Upload a local file to HTTP server directly instead of loading to control first.</p>
+		<p><code class="type">JavaScript:</code></p>
+         <code class="language-javascript">
+            <pre>
+function btnScan_onclick() 
+{
+    if (DWObject) {
+        DWObject.SelectSourceByIndex(document.getElementById("source").selectedIndex);
+        DWObject.OpenSource();
+        DWObject.IfDisableSourceAfterAcquire = true;
+        DWObject.AcquireImage();
+    }
+}
+
+// OnHttpUploadSuccess and OnHttpUploadFailure are callback functions.
+function OnHttpUploadSuccess() {
+    console.log('successful');
+}
+function OnHttpUploadFailure(errorCode, errorString, sHttpResponse) {
+    alert(errorString + sHttpResponse);
+}
+
+function btnUpload_onclick() 
+{
+    var strHTTPServer = location.hostname; //The name of the HTTP server. 
+    var CurrentPathName = unescape(location.pathname);
+    var CurrentPath = CurrentPathName.substring(0, CurrentPathName.lastIndexOf("/") + 1);
+    var strActionPage = CurrentPath + "SaveToFile.aspx";
+    DWObject.IfSSL = false; // Set whether SSL is used
+    DWObject.HTTPPort = location.port == "" ? 80 : location.port;
+
+    // Uploads a local file to HTTP server directly instead of loading to control first
+    DWObject.HTTPUploadThroughPostDirectly(
+      strHTTPServer, 
+      "D:\\DWT.jpg", 
+      strActionPage, 
+      "imageData.jpg", 
+      OnHttpUploadSuccess, 
+      OnHttpUploadFailure
+    );
+}
+</pre>
+        </code>
+		<p><code class="type">SaveToFile.aspx:</code></p>
+		<code class="language-javascript">
+<pre>
+<%@ Page Language="C#" %>
+<%
+    try{
+        String strImageName;
+        HttpFileCollection files = HttpContext.Current.Request.Files;
+        HttpPostedFile uploadfile = files["RemoteFile"];
+        strImageName = uploadfile.FileName;
+        uploadfile.SaveAs(Server.MapPath(".") + "\\UploadedImages\\" + strImageName);
+    }
+    catch{
+	}
+%>
+</pre>
+    
+    </div>
+</body>
+</html>

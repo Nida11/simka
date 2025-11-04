@@ -1,0 +1,95 @@
+﻿<html>
+<head>
+    <title>Property PixelType - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20PixelType.htm'>PixelType</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>PixelType</h1>
+        <h3>Description</h3>
+        <p>Returns or sets the pixel type used for acquiring images.</p>
+
+        <h3>Data type</h3>
+        <code class="type">EnumDWT_PixelType (short)</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.PixelType = ...;</p>
+        </div>
+        <h3>Remarks</h3>
+        <table>
+            <tr>
+                <th>Allowed Values</th>
+                <th>PixelType</th>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_BW (0)</td>
+                <td>BW</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_GRAY (1)</td>
+                <td>GRAY</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_RGB (2)</td>
+                <td>RGB</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_PALLETE (3)</td>
+                <td>PALETTE</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_CMY (4)</td>
+                <td>CMY</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_CMYK (5)</td>
+                <td>CMYK</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_YUV (6)</td>
+                <td>YUV</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_YUVK (7)</td>
+                <td>YUVK</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_CIEXYZ (8)</td>
+                <td>CIEXYZ</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_LAB (9)</td>
+                <td>LAB</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_SRGB (10)</td>
+                <td>SRGB</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_SCRGB (11)</td>
+                <td>SCRGB</td>
+            </tr>
+            <tr>
+                <td>EnumDWT_PixelType.TWPT_INFRARED (16)</td>
+                <td>INFRARED</td>
+            </tr>
+        </table>
+        <p class="notice">Set this property after <a href="../Methods/method%20OpenSource.htm">OpenSource()</a> and before <a href="../Methods/method%20AcquireImage.htm">AcquireImage()</a>.</p>
+        <p class="notice">The Data Source (scanner) might not support a certain pixeltype, check its user manual for more information.</p>
+        <p>
+            When an error occurs, check <code><a href="prop%20ErrorCode.htm">ErrorCode</a></code> or
+            <code><a href="prop%20ErrorString.htm">ErrorString</a></code>
+            for error information.
+        </p>
+        <h3>See also</h3>
+        <code><a href="prop%20PixelFlavor.htm">PixelFlavor</a></code><br />
+        <code> <a href="../Methods/method%20OpenSource.htm">OpenSource()</a></code>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+    <title>Property BufferMemoryLimit - Dynamic Web TWAIN</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Scripts/common.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='apiIndex'>
+        <a href='../index.htm'>Index</a>&nbsp;&gt;&nbsp;
+        <a href='prop%20BufferMemoryLimit.htm'>BufferMemoryLimit</a>
+    </div>
+    <div class='content' id='content'>
+        <h1>BufferMemoryLimit</h1>
+        <h3>Description </h3>
+        <p>Returns or sets how much physical memory (caching threshold) is allowed for storing images currently loaded in Dynamic Web TWAIN. Once the limit is reached, images will be cached on the hard disk.</p>
+        <h3>Data type</h3>
+        <code class="type">&lt;int&gt;</code>
+        <h3>Syntax</h3>
+        <div class='spec'>
+            <p>.BufferMemoryLimit = 800;</p>
+        </div>
+
+        <h3>Remarks</h3>
+        <p class="notice">
+            Set this property only when you have a very small physical memory (&lt; 2GB) or a very big one (&gt;4GB). <br />
+            The more memory is allowed, the better the performance will be.
+        </p>
+        <p>
+            The default value is set to 800 (MB), anything beyond 800MB gets compressed, encrypted and cached on the local disk.<br />
+        </p>
+        <p class="notice">All cached data is encrypted and can only be read by Dynamic Web TWAIN and it will be destroyed when it is no longer used.</p>
+        <h3>See also</h3>
+        <p>
+            <code><a href="prop%20IfAllowLocalCache.htm">IfAllowLocalCache</a></code>
+        </p>
+    </div>
+</body>
+</html>
