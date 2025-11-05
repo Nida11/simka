@@ -24,115 +24,201 @@ class Potensi_model extends CI_Model {
 		return $this->db->query($sql)->result_array();
 	}
 
-	function get_data_laporan($user_upload = '', $tahun='', $bulan='', $tgl1='', $tgl2='')	{
-		// $user_upload = $this->session->userdata('id_user');
+function get_data_laporan($user_upload = '', $tahun = '', $bulan = '', $tgl1 = '', $tgl2 = '', $kd_mohon = '')
+{
+    $sql = "SELECT
+                a.Date,
+                DAY(a.Date) AS tanggal,
+                DAYNAME(a.Date) AS hari,";
 
-		$sql = "SELECT
-					a.Date,
-					DAY(a.Date) as tanggal,
-					( SELECT user_upload FROM simka_data_scan WHERE";
-		$sql .= ($user_upload != '') ? " user_upload = '$user_upload' AND" : "";
-		$sql .= " tgl_scan = a.Date GROUP BY tgl_scan ) AS user_upload,
-					DAYNAME( a.Date ) AS hari,
-					( SELECT COUNT( simka_data_scan.id_scan_data ) FROM simka_data_scan WHERE";
-		$sql .= ($user_upload != '') ? " user_upload = '$user_upload' AND" : "";
-		$sql .= " tgl_scan = a.Date ) AS jumlah 
-				FROM
-					(
-					SELECT
-						last_day( '".$tahun."-".$bulan."-01' ) - INTERVAL ( a.a + ( 10 * b.a ) + ( 100 * c.a ) ) DAY AS Date 
-					FROM
-						(
-						SELECT
-							0 AS a UNION ALL
-						SELECT
-							1 UNION ALL
-						SELECT
-							2 UNION ALL
-						SELECT
-							3 UNION ALL
-						SELECT
-							4 UNION ALL
-						SELECT
-							5 UNION ALL
-						SELECT
-							6 UNION ALL
-						SELECT
-							7 UNION ALL
-						SELECT
-							8 UNION ALL
-						SELECT
-							9 
-						) AS a
-						CROSS JOIN (
-						SELECT
-							0 AS a UNION ALL
-						SELECT
-							1 UNION ALL
-						SELECT
-							2 UNION ALL
-						SELECT
-							3 UNION ALL
-						SELECT
-							4 UNION ALL
-						SELECT
-							5 UNION ALL
-						SELECT
-							6 UNION ALL
-						SELECT
-							7 UNION ALL
-						SELECT
-							8 UNION ALL
-						SELECT
-							9 
-						) AS b
-						CROSS JOIN (
-						SELECT
-							0 AS a UNION ALL
-						SELECT
-							1 UNION ALL
-						SELECT
-							2 UNION ALL
-						SELECT
-							3 UNION ALL
-						SELECT
-							4 UNION ALL
-						SELECT
-							5 UNION ALL
-						SELECT
-							6 UNION ALL
-						SELECT
-							7 UNION ALL
-						SELECT
-							8 UNION ALL
-						SELECT
-							9 
-						) AS c 
-					) a 
-				WHERE";
+    if ($user_upload != '') {
+        $sql .= "
+                (SELECT user_upload 
+                 FROM simka_data_scan 
+                 WHERE user_upload = '$user_upload' 
+                   AND tgl_scan = a.Date 
+                 GROUP BY tgl_scan) AS user_upload,";
+    } else {
+        $sql .= "
+                (SELECT user_upload 
+                 FROM simka_data_scan 
+                 WHERE tgl_scan = a.Date 
+                 GROUP BY tgl_scan) AS user_upload,";
+    }
 
-		if ($tgl1 == '') {
-			$sql .= " a.Date BETWEEN '".$tahun."-".$bulan."-01' 
-					AND last_day( '".$tahun."-".$bulan."-01' )";
-		} else {
-			if ($tgl2 == '') {
-				$sql .= " a.Date BETWEEN '".$tahun."-".$bulan."-".$tgl1."' 
-					AND last_day( '".$tahun."-".$bulan."-01' )";
-			} else {
-				$sql .= " a.Date BETWEEN '".$tahun."-".$bulan."-".$tgl1."' 
-					AND '".$tahun."-".$bulan."-".$tgl2."'";
-			}
-		}
+    if ($kd_mohon != '') {
+        $sql .= "
+                (SELECT m.Nm_mohon 
+                 FROM tkd_mohon m 
+                 JOIN simka_data_scan s ON s.kd_mohon = m.kd_mohon 
+                 WHERE s.tgl_scan = a.Date 
+                   AND s.kd_mohon = '$kd_mohon'
+                 GROUP BY s.tgl_scan) AS Nm_mohon,";
+    }
 
-		$sql .= " ORDER BY
-					a.Date";
+    $sql .= "
+                (SELECT COUNT(s.id_scan_data)
+                 FROM simka_data_scan s
+                 WHERE tgl_scan = a.Date";
+    $sql .= ($user_upload != '') ? " AND s.user_upload = '$user_upload'" : "";
+    $sql .= ($kd_mohon != '') ? " AND s.kd_mohon = '$kd_mohon'" : "";
+    $sql .= ") AS jumlah
+            FROM
+                (
+                SELECT
+                    LAST_DAY('".$tahun."-".$bulan."-01') - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY AS Date
+                FROM
+                    (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+                     UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a
+                    CROSS JOIN (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+                     UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b
+                    CROSS JOIN (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+                     UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS c
+                ) a 
+            WHERE ";
+
+    if ($tgl1 == '') {
+        $sql .= "a.Date BETWEEN '".$tahun."-".$bulan."-01' AND LAST_DAY('".$tahun."-".$bulan."-01')";
+    } else {
+        if ($tgl2 == '') {
+            $sql .= "a.Date BETWEEN '".$tahun."-".$bulan."-".$tgl1."' AND LAST_DAY('".$tahun."-".$bulan."-01')";
+        } else {
+            $sql .= "a.Date BETWEEN '".$tahun."-".$bulan."-".$tgl1."' AND '".$tahun."-".$bulan."-".$tgl2."'";
+        }
+    }
+
+    $sql .= " ORDER BY a.Date ASC";
+
+   $query = $this->db->query($sql);
+
+if (!$query) {
+    // Tampilkan error SQL-nya langsung di browser biar tahu di mana letaknya
+    $error = $this->db->error();
+    echo "<pre>SQL ERROR:\n" . $error['message'] . "\n\nQUERY:\n" . $sql . "</pre>";
+    exit;
+}
+
+return $query->result();
+
+}
+
+
+
+
+
+
+
+
+
+	// function get_data_laporan($user_upload = '', $tahun='', $bulan='', $tgl1='', $tgl2='' ,  $kd_mohon='')	{
+	// 	// $user_upload = $this->session->userdata('id_user');
+
+	// 	$sql = "SELECT
+	// 				a.Date,
+	// 				DAY(a.Date) as tanggal,
+	// 				( SELECT user_upload FROM simka_data_scan WHERE";
+	// 	$sql .= ($user_upload != '') ? " user_upload = '$user_upload' AND" : "";
+	// 	$sql .= " tgl_scan = a.Date GROUP BY tgl_scan ) AS user_upload,
+	// 				DAYNAME( a.Date ) AS hari,
+	// 				( SELECT COUNT( simka_data_scan.id_scan_data ) FROM simka_data_scan WHERE";
+	// 	$sql .= ($user_upload != '') ? " user_upload = '$user_upload' AND" : "";
+	// 	$sql .= " tgl_scan = a.Date ) AS jumlah 
+	// 			FROM
+	// 				(
+	// 				SELECT
+	// 					last_day( '".$tahun."-".$bulan."-01' ) - INTERVAL ( a.a + ( 10 * b.a ) + ( 100 * c.a ) ) DAY AS Date 
+	// 				FROM
+	// 					(
+	// 					SELECT
+	// 						0 AS a UNION ALL
+	// 					SELECT
+	// 						1 UNION ALL
+	// 					SELECT
+	// 						2 UNION ALL
+	// 					SELECT
+	// 						3 UNION ALL
+	// 					SELECT
+	// 						4 UNION ALL
+	// 					SELECT
+	// 						5 UNION ALL
+	// 					SELECT
+	// 						6 UNION ALL
+	// 					SELECT
+	// 						7 UNION ALL
+	// 					SELECT
+	// 						8 UNION ALL
+	// 					SELECT
+	// 						9 
+	// 					) AS a
+	// 					CROSS JOIN (
+	// 					SELECT
+	// 						0 AS a UNION ALL
+	// 					SELECT
+	// 						1 UNION ALL
+	// 					SELECT
+	// 						2 UNION ALL
+	// 					SELECT
+	// 						3 UNION ALL
+	// 					SELECT
+	// 						4 UNION ALL
+	// 					SELECT
+	// 						5 UNION ALL
+	// 					SELECT
+	// 						6 UNION ALL
+	// 					SELECT
+	// 						7 UNION ALL
+	// 					SELECT
+	// 						8 UNION ALL
+	// 					SELECT
+	// 						9 
+	// 					) AS b
+	// 					CROSS JOIN (
+	// 					SELECT
+	// 						0 AS a UNION ALL
+	// 					SELECT
+	// 						1 UNION ALL
+	// 					SELECT
+	// 						2 UNION ALL
+	// 					SELECT
+	// 						3 UNION ALL
+	// 					SELECT
+	// 						4 UNION ALL
+	// 					SELECT
+	// 						5 UNION ALL
+	// 					SELECT
+	// 						6 UNION ALL
+	// 					SELECT
+	// 						7 UNION ALL
+	// 					SELECT
+	// 						8 UNION ALL
+	// 					SELECT
+	// 						9 
+	// 					) AS c 
+	// 				) a 
+	// 			WHERE";
+
+	// 	if ($tgl1 == '') {
+	// 		$sql .= " a.Date BETWEEN '".$tahun."-".$bulan."-01' 
+	// 				AND last_day( '".$tahun."-".$bulan."-01' )";
+	// 	} else {
+	// 		if ($tgl2 == '') {
+	// 			$sql .= " a.Date BETWEEN '".$tahun."-".$bulan."-".$tgl1."' 
+	// 				AND last_day( '".$tahun."-".$bulan."-01' )";
+	// 		} else {
+	// 			$sql .= " a.Date BETWEEN '".$tahun."-".$bulan."-".$tgl1."' 
+	// 				AND '".$tahun."-".$bulan."-".$tgl2."'";
+	// 		}
+	// 	}
+
+	// 	$sql .= " ORDER BY
+	// 				a.Date";
 		// $sql .= " FROM simka_data_scan
 		// 		WHERE user_upload = '$user_upload'";
 		// $sql .= (!empty($tahun)) ? " AND YEAR(simka_data_scan.tgl_scan) = '$tahun'" : "";
 		// $sql .= "GROUP BY simka_data_scan.tgl_scan";
 
-		return $this->db->query($sql)->result_array();
-	}
+	// 	return $this->db->query($sql)->result_array();
+	// }
 
 }
 

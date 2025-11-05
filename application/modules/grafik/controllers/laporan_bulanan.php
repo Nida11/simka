@@ -20,7 +20,7 @@ class Laporan_bulanan extends Site_utils {
 		$this->bulan = $this->get_default_request('sync_bulan', '');
 		$this->tanggal1 = $this->get_default_request('sync_tanggal1', '');
 		$this->tanggal2 = $this->get_default_request('sync_tanggal2', '');
-
+		$this->kd_mohon = $this->get_default_request('kd_mohon', '');
 		$this->mode_input = $this->get_default_request('mode_input', 'save');
 	}
 
@@ -33,7 +33,7 @@ class Laporan_bulanan extends Site_utils {
 	}
 
 	function get_data_laporan($id_user = '') {
-		$response = $this->model_data->get_data_laporan($id_user, $this->tahun, $this->bulan, $this->tanggal1, $this->tanggal2);
+		$response = $this->model_data->get_data_laporan($id_user, $this->tahun, $this->bulan, $this->tanggal1, $this->tanggal2, $this->kd_mohon);
 		$this->_build_result($response, 'info data', 200);
 	}
 

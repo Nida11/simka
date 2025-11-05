@@ -32,24 +32,52 @@
 				    </select>
 				</div>
 			</div>
-			<div class='col-lg-6' style="padding-left: 0;" id="dt_tgl1">
-				<div class="mrgbt10">
-					<a>DARI TANGGAL</a>
-					<div class="input-group">
-						<span class="input-group-addon"><span class='glyphicon glyphicon-asterisk'></span></span>
-						<input class='form-control' type="text" name="sync_tanggal1" data-ng-model='sync_tanggal1' placeholder='(Optional)'>
-					</div>
-				</div>
+			<div class="row">
+	<div class='col-lg-4 col-md-4 col-sm-12' id="dt_tgl1">
+		<div class="mrgbt10">
+			<a>DARI TANGGAL</a>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class='glyphicon glyphicon-asterisk'></span>
+				</span>
+				<input class='form-control' type="text" name="sync_tanggal1" data-ng-model='sync_tanggal1' placeholder='(Optional)'>
 			</div>
-			<div class="col-lg-6" style="padding-right: 0;" id="dt_tgl2">
-				<div class="mrgbt10">
-					<a>SAMPAI TANGGAL</a>
-					<div class="input-group">
-						<span class="input-group-addon"><span class='glyphicon glyphicon-asterisk'></span></span>
-						<input class='form-control' type="text" name="sync_tanggal2" data-ng-model='sync_tanggal2' placeholder='(Optional)'>
-					</div>
-				</div>
+		</div>
+	</div>
+
+	<div class="col-lg-4 col-md-4 col-sm-12" id="dt_tgl2">
+		<div class="mrgbt10">
+			<a>SAMPAI TANGGAL</a>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class='glyphicon glyphicon-asterisk'></span>
+				</span>
+				<input class='form-control' type="text" name="sync_tanggal2" data-ng-model='sync_tanggal2' placeholder='(Optional)'>
 			</div>
+		</div>
+	</div>
+
+	<?php
+     $kode = $this->db->get('tkd_mohon')->result();
+     ?>
+	<div class="col-lg-4 col-md-4 col-sm-12" id="dt_mohon">
+		<div class="mrgbt10">
+			<a>NAMA MOHON</a>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class='glyphicon glyphicon-user'></span>
+				</span>
+<select ng-model="kd_mohon">
+				<?php foreach ($kode as $k): ?>	
+       <option value="<?= $k->kd_mohon ?>"><?= $k->kohir ?> - <?= $k->Nm_mohon ?></option>
+ <?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 			<div class='mrgbt10'>
 				<?php if ($this->session->userdata('is_admin')) {?>
 				<a>USER</a>

@@ -314,7 +314,8 @@ app.controller('produksi_controller', function($scope, $rootScope, $http){
 					sync_tahun: $scope.sync_tahun,
 					sync_bulan: $scope.sync_bulan,
 					sync_tanggal1: $scope.sync_tanggal1,
-					sync_tanggal2: $scope.sync_tanggal2
+					sync_tanggal2: $scope.sync_tanggal2,
+					kd_mohon: $scope.kd_mohon
 				},
 				type: 'POST',
 				dataType: 'json',
