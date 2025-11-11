@@ -84,6 +84,8 @@
 			try{
 				$data_config_wilayah = array();
 				$this->no_polisi = (!empty($no_polisi)) ? $no_polisi : $this->no_polisi;
+				$no_polisi = preg_replace('/\s+/', '-', $no_polisi); //3ANGKA
+				$no_polisi = preg_replace('/-+/', '-', $no_polisi); 
 				$no_polisi = str_replace(' ', '-', $this->no_polisi);
 				$no_polisi = str_replace('--', '-', $no_polisi);
 				$no_polisi = str_replace('---', '-', $no_polisi);
